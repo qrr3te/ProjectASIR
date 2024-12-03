@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Cita Previa - Alameda Motor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <section class="main-header">
+            <div class="logo">
+                <h1>Alameda Motor</h1>
+                <p>Mejor servicio para tu coche</p>
+            </div>
+            <nav class="nav-menu">
+                <a href="#">El Taller</a>
+                <a href="#">Servicios</a>
+                <a href="#">Solicitar cita previa</a>
+                <a href="#">Solicitar Presupuesto</a>
+                <a href="#">Vehículos</a>
+                <a href="#">Contacto</a>
+            </nav>
+            <div class="header-right">
+                <button class="whatsapp-btn">Contacta por WhatsApp</button>
+                <div class="icons">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Solicitar Cita Previa</h2>
+            <p>Por favor, complete el siguiente formulario para agendar su cita.</p>
+            <form class="appointment-form">
+                <!-- Información personal -->
+                <label for="name">Nombre Completo:</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+
+                <label for="phone">Teléfono:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Tu teléfono de contacto" required>
+
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+
+                <!-- Información del vehículo -->
+                <label for="car-model">Modelo del coche:</label>
+                <input type="text" id="car-model" name="car_model" placeholder="Ej. Toyota Corolla" required>
+
+                <label for="car-year">Año del coche:</label>
+                <input type="number" id="car-year" name="car_year" placeholder="Ej. 2020" min="1900" max="2024"
+                    required>
+
+                <!-- Fecha y hora preferida -->
+                <label for="date">Fecha Preferida:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="time">Hora Preferida:</label>
+                <input type="time" id="time" name="time" required>
+
+                <!-- Servicios solicitados -->
+                <label for="services">Servicios Solicitados:</label>
+                <div id="services" class="services-checkboxes">
+                    <label>
+                        <input type="checkbox" name="services[]" value="oil_change"> Cambio de aceite
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services[]" value="tire_change"> Cambio de neumáticos
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services[]" value="battery_check"> Revisión de batería
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services[]" value="brakes_check"> Revisión de frenos
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services[]" value="engine_diagnostics"> Diagnóstico del motor
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services[]" value="general_service"> Mantenimiento general
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services[]" value="ac_repair"> Reparación de aire acondicionado
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services[]" value="wheel_alignment"> Alineación de ruedas
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services[]" value="suspension_check"> Revisión de suspensión
+                    </label>
+                    <label>
+                        <input type="checkbox" name="services[]" value="transmission_service"> Servicio de transmisión
+                    </label>
+                </div>
+
+                <!-- Comentarios adicionales -->
+                <label for="comments">Comentarios adicionales:</label>
+                <textarea id="comments" name="comments" placeholder="Escriba aquí cualquier detalle adicional..."
+                    rows="4"></textarea>
+
+                <!-- Botón de envío -->
+                <button type="submit" class="submit-btn">Enviar Solicitud</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="bottom-bar">
+            <div class="contact-info">
+                <span>Lun - Vie: 09:00am a 06:00pm</span>
+                <span> | </span>
+                <span>+34 123456789</span>
+                <span> | </span>
+                <span>support@alamedamotor.com</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Alameda Motor. Todos los derechos reservados.</p>
+        </div>
+        <div class="legal-links">
+            <a href="/terminos-y-condiciones.html">Términos y Condiciones</a>
+            <span>|</span>
+            <a href="/politicas-de-privacidad.html">Políticas de Privacidad</a>
+        </div>
+    </footer>
+
+    <style>
+        /* Estilos comunes */
+        body,
+        html {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Estilo del encabezado */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #000000;
+        }
+
+        .logo h1 {
+            color: #ff7300;
+            font-size: 24px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        /* Formulario */
+        .form-section {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .appointment-form label {
+            margin: 10px 0 5px;
+            font-weight: 500;
+        }
+
+        .appointment-form input,
+        .appointment-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 95%;
+        }
+
+        .services-checkboxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* Dos columnas iguales */
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .services-checkboxes label {
+            display: flex;
+            align-items: center;
+            /* Alinea verticalmente checkbox y texto */
+            gap: 10px;
+            font-size: 16px;
+        }
+
+        .services-checkboxes input {
+            width: auto;
+            /* Restablece el tamaño natural del checkbox */
+            height: auto;
+        }
+
+
+        .appointment-form button {
+            margin-top: 20px;
+            background-color: #ff7300;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .appointment-form button:hover {
+            background-color: #ce6a17;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</body>
+
+</html>
