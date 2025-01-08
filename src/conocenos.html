@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conócenos - Alameda Industrial</title>
+    <link rel="stylesheet" href="conocenos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <section class="main-header">
+            <div class="logo"><img src="img/logo.png" alt="">
+            </div>
+            <nav class="nav-menu">
+                <a href="#">Inicio</a>
+                <a href="#">Servicios</a>
+                <a href="#">Solicitar Presupuesto</a>
+                <a href="#">Vehículos</a>
+                <a href="#">Conócenos</a>
+                <a href="#">Contacto</a>
+            </nav>
+            <div class="header-right">
+                <button class="whatsapp-btn">Contacta por WhatsApp</button>
+                <div class="icons">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-header2">
+            <div class="logo">
+                <img src="img/Logo Vectorizado.png" alt="">
+            </div>
+            <div class="accordion">
+                <!-- Sección Inicio -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-url="index.html">Inicio</button>
+                    <div class="accordion-content">
+                        <p>Explora nuestra página de inicio para descubrir más sobre Alameda Industrial y nuestros
+                            servicios.</p>
+                    </div>
+                </div>
+
+                <!-- Sección Servicios -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Servicios</button>
+                    <div class="accordion-content">
+                        <p>Conoce los servicios que ofrecemos, desde reparación de vehículos hasta suministro de
+                            combustibles.</p>
+                    </div>
+                </div>
+
+                <!-- Sección Solicitar Presupuesto -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Solicitar Presupuesto</button>
+                    <div class="accordion-content">
+                        <p>Solicita un presupuesto personalizado según tus necesidades. ¡Estamos aquí para ayudarte!</p>
+                    </div>
+                </div>
+
+                <!-- Sección Vehículos -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Vehículos</button>
+                    <div class="accordion-content">
+                        <p>Descubre nuestra flota de vehículos y las opciones disponibles para transporte y servicios.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Sección Conócenos -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Conócenos</button>
+                    <div class="accordion-content">
+                        <p>Conoce más sobre Alameda Industrial, nuestra historia, misión y visión como empresa líder.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Sección Contacto -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Contacto</button>
+                    <div class="accordion-content">
+                        <p>Contáctanos por WhatsApp o a través de nuestras redes sociales para obtener más información.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            document.querySelectorAll('.accordion-header').forEach(button => {
+                const accordionItem = button.parentElement;
+
+                // Mostrar información al pasar el ratón por encima
+                button.addEventListener('mouseover', () => {
+                    // Cerrar cualquier otro accordion abierto
+                    const openItem = document.querySelector('.accordion-item.active');
+                    if (openItem && openItem !== accordionItem) {
+                        openItem.classList.remove('active');
+                    }
+
+                    // Abrir el contenido del acordeón actual
+                    accordionItem.classList.add('active');
+                });
+
+                // Redirigir al hacer clic
+                button.addEventListener('click', () => {
+                    const url = button.getAttribute('data-url');
+                    if (url) {
+                        window.location.href = url; // Redirigir a la URL especificada
+                    }
+                });
+            });
+
+
+        </script>
+    </header>
+
+    <div class="hero-image">
+    </div>
+    <main>
+        <section class="about-us">
+            <div class="container">
+                <h2>Conócenos</h2>
+                <p>
+                    Alameda Industrial inicia su historia en 1963, estableciendo una Estación de Servicio que
+                    incluía un taller de reparaciones, una tienda de recambios y un lavadero de autos.
+                </p>
+                <p>
+                    A lo largo de dos generaciones, hemos acumulado la experiencia necesaria para ofrecer un
+                    servicio de máxima calidad y plena satisfacción en un sector tan complejo como el nuestro.
+                </p>
+                <p>
+                    Hoy somos un referente en el sector, gracias al esfuerzo de un equipo comprometido
+                    con la excelencia.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <section class="liderazgo">
+        <div class="container">
+            <h2>Liderazgo</h2>
+            <div class="content">
+                <div class="text">
+                    <h3>Dinergia Liderazgo</h3>
+                    <p>
+                        Dinergia es la primera distribuidora mayorista de Málaga en volumen de facturación con una
+                        trayectoria de 55 años en la que hemos acumulado toda la experiencia necesaria para suministrar
+                        con todas las garantías a un importantísimo volumen de empresas de todas las magnitudes y
+                        sectores. Esta ventaja competitiva nos ha catapultado a prestar también suministros de todos los
+                        carburantes, a provincias colindantes como son Córdoba y Sevilla.
+                    </p>
+                    <p>
+                        Hoy realizamos suministros de gasóleo tanto a viviendas unifamiliares como a compañías
+                        multinacionales, desde Gasóleo-A para la automoción como Gasóleo-C para Calefacción, desde
+                        instalaciones ubicadas en las zonas de interior como instalaciones de la Costa del Sol, de 500
+                        litros hasta las de 50.000 litros de capacidad, siempre cumpliendo diariamente con los más
+                        estrictos estándares de calidad y servicio. Dinergia es la única compañía que garantiza
+                        suministros a instalaciones debidamente legalizadas asegurando de esta forma que nuestros
+                        clientes no van a tener problemas con las autoridades de Industria.
+                    </p>
+                    <p>
+                        Nuestra filosofía de trabajo nos hace mucho más competitivos debido al alto volumen de producto
+                        que negociamos diariamente de manera independiente y sin que nuestros precios se vean
+                        condicionados por marcas o logotipos de otras compañías externas. Nuestros <strong>servicios
+                            agregados</strong> como mantenimiento, instalaciones, revisiones, reparaciones,
+                        legalizaciones, etc., así como nuestra continua información y asesoramiento, hacen que nuestros
+                        clientes siempre tengan sus instalaciones conforme a la compleja legalidad vigente.
+                    </p>
+                </div>
+                <div class="images">
+                    <img src="img/talleres-munuera.jpg" alt="Camión cisterna Dinergia">
+                    <img src="img/dinergia_adisabes1.jpg" alt="Flota de camiones Dinergia">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="bottom-bar">
+            <div class="contact-info">
+                <span>Lun - Vie: 09:00am a 06:00pm</span>
+                <span> | </span>
+                <span>+34 123456789</span>
+                <span> | </span>
+                <span>support@alamedaindustrial.com</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Alameda Industrial. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
