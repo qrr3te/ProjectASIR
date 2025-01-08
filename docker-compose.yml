@@ -30,7 +30,7 @@ services:
     image: mariadb:latest
     environment:
       MYSQL_ROOT_PASSWORD: ArchTheBest
-      MYSQL_DATABASE: db
+      MYSQL_DATABASE: alamedamotors
       MYSQL_USER: asir
       MYSQL_PASSWORD: ArchTheBest
     ports:
