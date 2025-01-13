@@ -2,25 +2,10 @@
 
 Este repositorio contiene el código fuente de la página web oficial de **Alameda Motor**, una plataforma diseñada para proporcionar información, servicios y soporte a los clientes de esta empresa.
 
-
-## **Objetivo del Proyecto**
+## Objetivo del Proyecto
 El propósito del proyecto es desarrollar una página web moderna y funcional para Alameda Motor, que ofrezca una experiencia de usuario optimizada y facilite el acceso a los servicios ofrecidos por la empresa.
 
-
-## **Roles y Responsabilidades**
-El equipo está compuesto por los siguientes integrantes, cada uno con un rol definido:
-
-- **Project Manager:** Curro Alcaide 
-  Responsable de la gestión y planificación del proyecto, asegurando el cumplimiento de plazos y objetivos.
-
-- **DevOps:** Álvaro Catalá
-  Encargado de la configuración, despliegue y mantenimiento de la infraestructura necesaria para el proyecto.
-
-- **Desarrolladores:**  
-  - Javier López y Miguel Trujillo: Especializados en el desarrollo front-end y back-end, implementando el diiseño y la interfaz de usuario así como la lógica del negocio y la gestión de datos.
- 
-
-## **Estructura del Proyecto**
+## Estructura del Proyecto
 La estructura del proyecto incluye los siguientes componentes principales:
 
 - **Frontend:**  
@@ -34,10 +19,34 @@ La estructura del proyecto incluye los siguientes componentes principales:
 - **DevOps:**  
   Infraestructura configurada usando [Docker](https://www.docker.com/) para la creación de contenedores que facilitan el despliegue y la gestión del entorno de desarrollo y producción.
 
+## Normas de desarrollo
 
-### **Pasos para ejecutar el proyecto en Docker:**
+### Reglas de estilo
++ Uso de **snake case** ejemplo: $variable\_ejemplo o funcion\_ejemplo().
++ Tabulaciones de 3 espacios.
 
+### Añadir funcionalidades
+Para añadir una funcionalidad compleja deberás de crear una rama para esa funcionalidad, con un nombre descriptivo.
+No se pueden hacer cambios en una rama sin avisar previamente al creador de la rama.
+
+### Merge
+Si tu merge tiene conflicto con **main**:
++ El codigo preexistente en main tiene prioridad sobre lo que se esta por añadir.
+
+### Rama main
+Se puede trabajar directamente en la rama main si:
++ Refactorizas codigo.
++ Arreglas errores.
++ Implementas una caracteristica sencilla que conlleva 1 solo commit.
+
+## Setup del proyecto:
 1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/tu-usuario/ProjectASIR.git
-   cd ProjectASIR
+    ```bash
+    git clone https://github.com/tu-usuario/ProjectASIR.git
+    cd ProjectASIR
+    ```
+2. `docker-compose up -d`
+3. `mariadb -h 127.0.0.1 -u asir -p`
+4. Insertar contraseña: ArchTheBest
+5. `source alamedamotors.sql`
+
