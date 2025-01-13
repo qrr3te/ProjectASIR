@@ -1,5 +1,8 @@
 <?php
 // Configuración de conexión a la base de datos
+// require("./connect.php");
+//
+// conf manual
 $servername = "mysql-db"; // Cambia si usas otro host
 $username = "asir";
 $password = "ArchTheBest";
@@ -11,34 +14,39 @@ $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Error en la conexión: " . $conn->connect_error);
 }
+// end conf
 
 // Validar si el formulario fue enviado
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // Prevenir inyecciones SQL
-    $username = $conn->real_escape_string($username);
-    $password = $conn->real_escape_string($password);
-
-    // Consultar usuario en la base de datos
-    $sql = "SELECT * FROM cliente WHERE username = '$username'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-
-        // Verificar contraseña
-        if (password_verify($password, $user['password'])) {
-            echo "Inicio de sesión exitoso. ¡Bienvenido, $username!";
-            // Aquí puedes iniciar la sesión del usuario, redirigirlo, etc.
-        } else {
-            echo "Contraseña incorrecta.";
-        }
-    } else {
-        echo "El usuario no existe.";
-    }
+if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+   die();
 }
 
+$post_username = $_POST['username'];
+$post_password = $_POST['password'];
+
+// Prevenir inyecciones SQL
+$stmt = $conn->prepare("SELECT username, password FROM cliente WHERE username = ?");
+$stmt->bind_param("s", $post_username);
+
+$username = "";
+$password = "";
+
+$stmt->bind_result($username, $password);
+$stmt->execute();
+$stmt->fetch();
 $conn->close();
+
+if ($username == "") {
+   die();
+}
+
+// debug 
+// echo $username . " - " . $password . " - " . $post_password;
+// die();
+
+if ( password_verify($post_password, $password)) {
+   echo "sesión iniciada como $username";
+} else {
+   echo "inicio de sesión fallido";
+}
 ?>
