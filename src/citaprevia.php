@@ -11,29 +11,7 @@
 </head>
 
 <body>
-    <header>
-        <section class="main-header">
-            <div class="logo"><img src="img/logo.png" alt="">
-            </div>
-            <nav class="nav-menu">
-                <a href="#">Inicio</a>
-                <a href="#">Servicios</a>
-                <a href="#">Solicitar Presupuesto</a>
-                <a href="#">Vehículos</a>
-                <a href="#">Conócenos</a>
-                <a href="#">Contacto</a>
-            </nav>
-            <div class="header-right">
-                <button class="whatsapp-btn">Contacta por WhatsApp</button>
-                <div class="icons">
-                    <i class="fas fa-search"></i>
-                    <i class="fas fa-user"></i>
-                </div>
-            </div>
-        </section>
-
-    </header>
-
+    <?php include("includes/header.php"); ?>
     <main>
         <section class="form-section">
             <h2>Solicitar Cita Previa</h2>
