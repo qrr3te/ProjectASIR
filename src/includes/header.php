@@ -310,11 +310,11 @@
       <div class="logo"><img src="img/logo.png" alt="">
       </div>
       <nav class="nav-menu">
-          <a href="#">Inicio</a>
+          <a href="/index.php">Inicio</a>
           <a href="#">Servicios</a>
-          <a href="#">Solicitar Presupuesto</a>
+          <a href="/presupuesto.php">Solicitar Presupuesto</a>
           <a href="#">Vehículos</a>
-          <a href="#">Conócenos</a>
+          <a href="/conocenos.php">Conócenos</a>
           <a href="#">Contacto</a>
       </nav>
       <div class="header-right">

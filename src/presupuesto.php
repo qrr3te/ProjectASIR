@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitar Cita Previa - Alameda Motor</title>
+    <title>Presupuesto - Alameda Motor</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -108,7 +108,7 @@
     <?php include("includes/header.php"); ?>
     <main>
         <section class="form-section">
-            <h2>Solicitar Cita Previa</h2>
+            <h2>Solicitar Presupuesto</h2>
             <p>Por favor, complete el siguiente formulario para agendar su cita.</p>
             <form class="appointment-form">
 
