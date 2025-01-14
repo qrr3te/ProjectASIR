@@ -39,6 +39,23 @@ Se puede trabajar directamente en la rama main si:
 + Arreglas errores.
 + Implementas una caracteristica sencilla que conlleva 1 solo commit.
 
+## TODO List
+
+### Cliente
+- [x] Portada de la web
+- [x] Formulario de presupuesto
+- [x] Conocenos
+- [ ] Formulario de contacto
+- [ ] vehículos
+- [ ] Servicios
+- [x] Login/Registro cliente
+- [ ] Mostrar citas del cliente
+- [ ] Mostrar carburantes
+
+### Administrador
+- [ ] Login
+- [ ] Abstracción de la base de datos (CRUD)
+
 ## Setup del proyecto:
 1. Clona el repositorio:
     ```bash
