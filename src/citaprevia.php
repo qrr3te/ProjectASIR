@@ -8,6 +8,100 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Estilos comunes */
+        body,
+        html {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .logo h1 {
+            color: #ff7300;
+            font-size: 24px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        /* Formulario */
+        .form-section {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .appointment-form label {
+            margin: 10px 0 5px;
+            font-weight: 500;
+        }
+
+        .appointment-form input,
+        .appointment-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 95%;
+        }
+
+        .services-checkboxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* Dos columnas iguales */
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .services-checkboxes label {
+            display: flex;
+            align-items: center;
+            /* Alinea verticalmente checkbox y texto */
+            gap: 10px;
+            font-size: 16px;
+        }
+
+        .services-checkboxes input {
+            width: auto;
+            /* Restablece el tamaño natural del checkbox */
+            height: auto;
+        }
+
+
+        .appointment-form button {
+            margin-top: 20px;
+            background-color: #ff7300;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .appointment-form button:hover {
+            background-color: #ce6a17;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -108,112 +202,6 @@
             <a href="/politicas-de-privacidad.html">Políticas de Privacidad</a>
         </div>
     </footer>
-
-    <style>
-        /* Estilos comunes */
-        body,
-        html {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        /* Estilo del encabezado */
-        .main-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 20px;
-            background-color: #fff;
-            border-bottom: 1px solid #000000;
-        }
-
-        .logo h1 {
-            color: #ff7300;
-            font-size: 24px;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 15px;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            font-size: 16px;
-        }
-
-        /* Formulario */
-        .form-section {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-        }
-
-        .appointment-form label {
-            margin: 10px 0 5px;
-            font-weight: 500;
-        }
-
-        .appointment-form input,
-        .appointment-form textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 95%;
-        }
-
-        .services-checkboxes {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            /* Dos columnas iguales */
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .services-checkboxes label {
-            display: flex;
-            align-items: center;
-            /* Alinea verticalmente checkbox y texto */
-            gap: 10px;
-            font-size: 16px;
-        }
-
-        .services-checkboxes input {
-            width: auto;
-            /* Restablece el tamaño natural del checkbox */
-            height: auto;
-        }
-
-
-        .appointment-form button {
-            margin-top: 20px;
-            background-color: #ff7300;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .appointment-form button:hover {
-            background-color: #ce6a17;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            position: absolute;
-            bottom: 0;
-        }
-    </style>
 </body>
 
 </html>
