@@ -1,14 +1,6 @@
 <?php
 // Configuración de conexión a la base de datos
-// require("./connect.php");
-//
-// conf manual
-$servername = "mysql-db"; // Cambia si usas otro host
-$username = "asir";
-$password = "ArchTheBest";
-$database = "alamedamotors";
-
-$conn = new mysqli($servername, $username, $password, $database);
+require("./includes/connect.php");
 
 // Verificar la conexión
 if ($conn->connect_error) {
