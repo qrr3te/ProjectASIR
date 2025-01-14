@@ -54,7 +54,7 @@ Se puede trabajar directamente en la rama main si:
 
 ### Administrador
 - [ ] Login
-- [ ] Abstracción de la base de datos (CRUD)
+- [ ] Abstracción de la base de datos (CRUD) - **Branched**
 
 ## Setup del proyecto:
 1. Clona el repositorio:
