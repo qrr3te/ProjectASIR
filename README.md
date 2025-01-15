@@ -53,7 +53,7 @@ Se puede trabajar directamente en la rama main si:
 - [ ] Mostrar carburantes
 
 ### Administrador
-- [ ] Login
+- [ ] Login - **branched**
 - [ ] Abstracción de la base de datos (CRUD) - **Branched**
 
 ## Setup del proyecto:
