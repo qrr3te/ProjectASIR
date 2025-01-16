@@ -45,12 +45,12 @@ Se puede trabajar directamente en la rama main si:
 - [x] Portada de la web
 - [x] Formulario de presupuesto
 - [x] Conocenos
-- [ ] Formulario de contacto
+- [x] Formulario de contacto - **Branched**
 - [ ] vehículos
 - [ ] Servicios - **Branched**
 - [x] Login/Registro cliente
 - [ ] Mostrar citas del cliente
-- [ ] Mostrar carburantes
+- [ ] Mostrar carburantes   
 
 ### Administrador
 - [ ] Login - **branched**
