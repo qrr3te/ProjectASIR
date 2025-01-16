@@ -1,22 +1,22 @@
 use alamedamotors;
 
 CREATE TABLE cliente (
-   id int PRIMARY KEY AUTO_INCREMENT AUTO_INCREMENT,
-   username varchar(50),
+   id int PRIMARY KEY AUTO_INCREMENT,
+   username varchar(50) NOT NULL UNIQUE,
    nombre varchar(255),
    apellido varchar(255),
-   email varchar(255),
-   telefono varchar(20),
+   email varchar(255) NOT NULL UNIQUE,
+   telefono varchar(20) UNIQUE,
    password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE admin (
-   id int PRIMARY KEY AUTO_INCREMENT AUTO_INCREMENT,
-   username varchar(50),
+   id int PRIMARY KEY AUTO_INCREMENT,
+   username varchar(50) NOT NULL UNIQUE,
    nombre varchar(255),
    apellido varchar(255),
-   email varchar(255),
-   telefono varchar(20),
+   email varchar(255) NOT NULL UNIQUE,
+   telefono varchar(20) UNIQUE,
    password VARCHAR(255) NOT NULL
 );
 
