@@ -311,7 +311,7 @@
       </div>
       <nav class="nav-menu">
           <a href="/index.php">Inicio</a>
-          <a href="#">Servicios</a>
+          <a href="/servicios.php">Servicios</a>
           <a href="/presupuesto.php">Solicitar Presupuesto</a>
           <a href="#">Vehículos</a>
           <a href="/conocenos.php">Conócenos</a>
