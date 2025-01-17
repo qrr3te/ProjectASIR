@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html 
 <html lang="es">
 
 <head>
@@ -10,42 +10,51 @@
 </head>
 
 <body>
-<!--//Conectar a la base de datillos-->
 <?php include("includes/header.php"); 
 
 require("./includes/connect.php");
-//Verificacion de la conexión
+
 if ($conn->connect_error) {
    die("Error en la conexión: " . $conn->connect_error);
 }
-
-//Realización de la consulta para extraer los datos
-$query = $conn->query("SELECT marca, modelo, precio, imagen FROM coche");
-
-//Comprobación de que existen resultados
-if (!$query) {
-    die("Error en la consulta: " . $mysqli->error);
-}
-//Ya tenemos los datos, cerramos la etiqueta de php y ahora mostraremos los datos recogidos
+// end conf
 ?>
-
 <div class="container">
         <h1>Gama de Turismos</h1>
         <div class="grid">
             <?php
-            // Array dinámico de vehículos
-            
+            // Array de vehículos
+            $vehiculos = [
+                [
+                    "nombre" => "Vehículo 1",
+                    "imagen" => "bety3.jpg",
+                    "url_descubre" => "#",
+                    "url_oferta" => "#"
+                ],
+                [
+                    "nombre" => "Vehículo 2",
+                    "imagen" => "bety2.jpg",
+                    "url_descubre" => "#",
+                    "url_oferta" => "#"
+                ],
+                [
+                    "nombre" => "Vehículo 3",
+                    "imagen" => "bety3.jpg",
+                    "url_descubre" => "#",
+                    "url_oferta" => "#"
+                ],
+                // Agrega más vehículos aquí
+            ];
 
             // Generar las tarjetas
-            while ($fila = $query->fetch_assoc()) {
+            foreach ($vehiculos as $vehiculo) {
                 echo '
                 <div class="card">
-                    <img src="'.$fila['imagen'].'" alt="'.$fila['marca'].' '.$fila['modelo'].'">
+                    <img src="'.$vehiculo['imagen'].'" alt="'.$vehiculo['nombre'].'">
                     <div class="card-body">
-                        <h2 class="card-title">'.$fila['marca'].' '.$fila['modelo'].'</h2>
-                        <p>Precio: '.$fila['precio'].' €</p>
-                        <a href="#" class="btn btn-outline">Descubre Más</a>
-                        <a href="#" class="btn btn-highlight">Solicita tu Oferta</a>
+                        <h2 class="card-title">'.$vehiculo['nombre'].'</h2>
+                        <a href="'.$vehiculo['url_descubre'].'" class="btn btn-outline">Descubre Más</a>
+                        <a href="'.$vehiculo['url_oferta'].'" class="btn btn-highlight">Solicita tu Oferta</a>
                     </div>
                 </div>
                 ';

@@ -10,7 +10,7 @@ if ($conn->connect_error) {
     die("Error en la conexión: " . $conn->connect_error);
 }
 
-echo "Conexión exitosa a la base de datos '$database'";
+//echo "Conexión exitosa a la base de datos '$database'";
 
 //$conn->close();
 ?>
