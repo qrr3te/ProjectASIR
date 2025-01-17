@@ -23,7 +23,7 @@ function login() {
    }
 
    if (password_verify($password, $db_password)) {
-      $_SESSION["user_id"] = $db_username;
+      $_SESSION["username"] = $db_username;
       $_SESSION["admin_status"] = true;
       $_SESSION["logged_in"] = true;
       header("Location: index.php");
