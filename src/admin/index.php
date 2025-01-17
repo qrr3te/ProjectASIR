@@ -30,16 +30,33 @@ if (!$admin_status) {
          </div>
       </header> 
       <nav>
-         <!-- TODO 
-         * INICIO (only normal mode)
-         * CLIENTES -> CITAS -> HISTORIAL
-         * CITAS -> CLIENTES -> HISTORIAL
-         * COMPRAS -> VEHICULOS
-         * VEHICULOS
-         * CARBURANTES
-         -->
+         <div id="nav-inicio">Inicio</div> 
+         <div id="nav-clientes">Clientes</div> 
+         <div id="nav-citas">Citas</div> 
+         <div id="nav-compras">Compras</div> 
+         <div id="nav-vehiculos">Vehiculos</div> 
+         <div id="nav-carburantes">Carburantes</div> 
       </nav>
-      <div id="main-area"></div>
+      <div id="main-area">
+         <div id="inicio">
+            <h1>Server's Stats Placeholder</h1>
+         </div>
+         <div id="clientes">
+            <h1>clientes Placeholder</h1>
+         </div>
+         <div id="citas">
+            <h1>Citas Placeholder</h1>
+         </div>
+         <div id="compras">
+            <h1>Compras Placeholder</h1>
+         </div>
+         <div id="vehiculos">
+            <h1>Vehiculos Placeholder</h1>
+         </div>
+         <div id="carburantes">
+            <h1>Carburantes Placeholder</h1>
+         </div>
+      </div>
       <script src="js/index.js"></script>
    </body>
 </html>
