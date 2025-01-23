@@ -17,39 +17,50 @@
         <h1>Servicios</h1>
         <div class="services">
             <div class="service-box">
-                <img src="icon-financiacion.png" alt="Financiación">
-                <h3>Financiación</h3>
-                <p>Negociamos con los principales bancos las mejores condiciones para nuestros clientes, posibilidad de financiación hasta en 10 años con o sin entrada.</p>
+                <img src="img/servicios-taller.jpg" alt="Servicio de taller">
+                <h3>Servicio de taller</h3>
+                <p>Ponemos a tu disposicion nuestro servicio de taller, en el podras pedir cita para diversos servicios relacionados con el mantenimiento de su vehiculo.</p>
             </div>
             <div class="service-box">
-                <img src="icon-entrega.png" alt="Entrega a domicilio">
-                <h3>Entrega a domicilio</h3>
+                <img src="img/" alt="Entrega a domicilio">
+                <h3>Venta de Vehiculos</h3>
                 <p>Le entregamos el coche en su domicilio personalmente o mediante agencia, usted elige.</p>
             </div>
             <div class="service-box">
-                <img src="icon-garantia.png" alt="Garantía">
-                <h3>Garantía</h3>
-                <p>Todos nuestros vehículos cuentan con garantía, en muchos casos oficial de la marca.</p>
-            </div>
-            <div class="service-box">
-                <img src="icon-certificados.png" alt="Vehículos certificados">
-                <h3>Vehículos certificados</h3>
-                <p>Facilitamos la máxima información a nuestros clientes, todos nuestros vehículos disponen de historial completo de mantenimiento, certificado de kilometraje y no siniestralidad.</p>
-            </div>
-            <div class="service-box">
-                <img src="icon-detailing.png" alt="Detailing">
-                <h3>Detailing</h3>
-                <p>Contamos con un experimentado equipo en detallado para dar el máximo cuidado a nuestros vehículos, hacemos corrección de pintura, tratamientos cerámicos, tratamientos de piel y plásticos interiores.</p>
+                <img src="img/dinergia_adisabe1.jpg" alt="Puta mierda">
+                <h3>Venta de Carburante</h3>
+                <p>Los mejores carburantes de la zona, disftuta de los mejores precios en mano de los mejores profesionales</p>
             </div>
         </div>
     </div>
-    <div class="footer">
-        <p>Copyright © 2024. Todos los derechos reservados.</p>
-        <div class="contact-info">
-            <p>Teléfonos: XXX XXX XXX | XXX XXX XXX</p>
-            <p>Email: <a href="mailto:">correo@alamaedamotors.com</a> / <a href="mailto:">correo2@alamedamotors.com</a></p>
-            <p>Dirección:  C. Flauta Mágica, 32, Cruz de Humilladero, 29006 Málaga</p>
-        </div>
+    <footer class="footer">
+    <div class="bottom-bar">
+      <div class="contact-info">
+        <span>Lun - Mar: 09:00am a 060:0pm</span>
+        <span> | </span>
+        <span>+34 123456789</span>
+        <span> | </span>
+        <span>support@alamedamotor.com</span>
+        <span> | </span>
+        <span style="text-align: center;">Copyright © 2024. Todos los derechos reservados.</span>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
     </div>
+    <div class="copyright">
+      <p>&copy; 2024 Alameda Motor. Todos los derechos reservados.</p>
+    </div>
+    <div class="legal-links">
+      <a href="/terminos-y-condiciones.html">Términos y Condiciones</a>
+      <span>|</span>
+      <a href="/politicas-de-privacidad.html">Políticas de Privacidad</a>
+    </div>
+  </footer>
+  </footer>
 </body>
 </html>
