@@ -81,11 +81,6 @@
   </section>
   <section class="cta-section">
     <div class="cta-card">
-      <h3>Solicitar Presupuesto</h3>
-      <p>Obtén un presupuesto detallado para el servicio que necesitas. Es rápido y sencillo.</p>
-      <button onclick="window.location.href='#presupuesto-form'">Solicitar Presupuesto</button>
-    </div>
-    <div class="cta-card">
       <h3>Pedir Cita Previa</h3>
       <p>Programa tu visita con nosotros y evita esperas innecesarias.</p>
       <button onclick="window.location.href='#cita-form'">Pedir Cita</button>
@@ -100,24 +95,25 @@
         <span>+34 123456789</span>
         <span> | </span>
         <span>support@alamedamotor.com</span>
-        <span> | </span>
-        <span style="text-align: center;">Copyright © 2024. Todos los derechos reservados.</span>
       </div>
       <div class="social-icons">
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="social-icons">
+        <a href="https://x.com/alamedamotor"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.facebook.com/talleresalamedamotor/?locale=es_ES"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.linkedin.com/company/a1-engine"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/alamedamotors23/"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@cochesnet"><i class="fab fa-youtube"></i></a>
+      </div>
       </div>
     </div>
     <div class="copyright">
       <p>&copy; 2024 Alameda Motor. Todos los derechos reservados.</p>
     </div>
     <div class="legal-links">
-      <a href="/terminos-y-condiciones.html">Términos y Condiciones</a>
+    <a href="/terminos.php">Términos y Condiciones</a>
       <span>|</span>
-      <a href="/politicas-de-privacidad.html">Políticas de Privacidad</a>
+      <a href="/cookies.php">Política de cookies</a>
     </div>
   </footer>
   </footer>

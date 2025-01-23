@@ -85,16 +85,22 @@
                 <span>support@alamedaindustrial.com</span>
             </div>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="https://x.com/alamedamotor"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/talleresalamedamotor/?locale=es_ES"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/a1-engine"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/alamedamotors23/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@cochesnet"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2024 Alameda Industrial. Todos los derechos reservados.</p>
         </div>
+    <div class="copyright">
+      <p>&copy; 2024 Alameda Motor. Todos los derechos reservados.</p>
+    </div>
+    <div class="legal-links">
+    <a href="/terminos.php">Términos y Condiciones</a>
+      <span>|</span>
+      <a href="/cookies.php">Política de cookies</a>
+    </div>
     </footer>
 </body>
 
