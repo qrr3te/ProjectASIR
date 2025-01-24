@@ -1,9 +1,9 @@
 <?php
-$servername = "mysql-db";
-$username = "asir";
-$password = "ArchTheBest";
-$database = "alamedamotors";
+$mysqli_servername = "mysql-db";
+$mysqli_username = "asir";
+$mysqli_password = "ArchTheBest";
+$mysqli_database = "alamedamotors";
 
-$conn = new mysqli($servername, $username, $password, $database);
-$conn_root = new mysqli($servername, "root", $password, $database);
+$conn = new mysqli($mysqli_servername, $mysqli_username, $mysqli_password, $mysqli_database);
+$conn_root = new mysqli($mysqli_servername, "root", $mysqli_password, $mysqli_database);
 ?>

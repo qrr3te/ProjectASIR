@@ -3,13 +3,13 @@ function login() {
    $user_identifier = $_POST['user_identifier'] ?? '';
    $password = $_POST['password'] ?? '';
 
-   if (empty($user_identifier) && empty($password)) {
+   if (empty($user_identifier) || empty($password)) {
       die();
    }
 
    require("../includes/connect.php");
 
-   $stmt = $conn->prepare("SELECT username,password FROM admin WHERE username = ? OR email = ?");
+   $stmt = $conn->prepare("SELECT username, password FROM admin WHERE username = ? OR email = ?");
    $stmt->bind_param("ss", $user_identifier, $user_identifier);
    $db_username = "";
    $db_password = "";
@@ -17,10 +17,6 @@ function login() {
 
    $stmt->execute();
    $stmt->fetch();
-
-   if (empty($password)) {
-      die();
-   }
 
    if (password_verify($password, $db_password)) {
       $_SESSION["username"] = $db_username;
