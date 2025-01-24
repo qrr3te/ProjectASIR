@@ -38,11 +38,6 @@ CREATE TABLE comprar (
    FOREIGN KEY (coche_id) references coche(matricula)
 );
 
-CREATE TABLE historial (
-   id int PRIMARY KEY AUTO_INCREMENT,
-   datos text
-);
-
 CREATE TABLE cita (
    id int(12) PRIMARY KEY AUTO_INCREMENT,
    marca varchar(255),
@@ -50,9 +45,7 @@ CREATE TABLE cita (
    fecha date,
    servicio_solicitado varchar(255),
    cliente_id int,
-   historial_id int,
-   FOREIGN KEY (cliente_id) references cliente(id),
-   FOREIGN KEY (historial_id) references historial(id)
+   FOREIGN KEY (cliente_id) references cliente(id)
 );
 
 CREATE TABLE carburantes (
