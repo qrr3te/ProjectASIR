@@ -8,9 +8,14 @@
    margin: 0;
 }
 
-body {
+html {
    width: 100vw;
    height: 100vh;
+}
+
+body {
+   width: 100%;
+   height: 100%;
 }
 
 header {
@@ -66,14 +71,185 @@ nav div:hover {
    color: white;
 }
 
-#main-area div {
-   width: 100%;
-   height: 100%;
+#main-area {
+   background-color: white;
    display: flex;
+   align-items: center;
    justify-content: center;
+   flex-direction: column;
+}
+
+#admin-utils {
+   height: 100px;
+   width: 80%;
+   display: grid;
+   grid-template-rows: 50px 1fr;
+   grid-template-columns: 200px 1fr;
+   border: 5px solid var(--secondary);
+   border-radius: 25px 25px 0px 0px;
+   background-color: var(--secondary);
+}
+
+#admin-utils #buttons {
+   justify-self: end;
+   align-self: center;
+   margin-right: 20px;
+}
+
+#admin-utils #buttons button {
+   width: 30px;
+   height: 30px;
+   font-size: 1.2rem;
+   font-weight: bolder;
+   background-color: white;
+   border: 1px solid black !important; 
+   box-shadow: 0px 0px !important;
+}
+
+#admin-utils #buttons button:hover {
+   cursor: pointer;
+}
+
+#admin-utils h1 {
+   justify-self: center;
+   align-self: center;
+   color: white;
+   height: 35px;
+   display: flex;
    align-items: center;
 }
 
+#admin-utils #search-bar {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+
+#admin-utils #search-bar input[type="text"] {
+   width: calc(100% - 180px);
+   height: 35px;
+   font-size: 1.5rem;
+   border: 1px solid black;
+   padding-left: 5px;
+   padding-right: 5px;
+}
+
+#admin-utils #search-bar input[type="submit"] {
+   width: 150px;
+   height: 35px;
+   font-size: 1.25rem;
+   background-color: white;
+   border: 1px solid black;
+   border-radius: 25px;
+}
+
+#admin-utils #search-bar input[type="submit"]:hover {
+   cursor: pointer;
+}
+
+#table-area {
+   width: 80%;
+   height: 70%;
+   max-height: 800px;
+   border: 5px solid var(--secondary);
+   overflow: scroll;
+}
+
+#table-area .item {
+   width: 100%;
+   border-collapse: collapse;
+}
+
+#table-area .item td,th{
+   height: 50px;
+   text-align: start;
+   border: 1px solid black;
+   padding-left: 15px;
+}
+
+#table-area .item #tag, #table-area .item #edit {
+   height: 51px;
+   background-color: var(--secondary);
+   color: white;
+   font-size: 1.3rem;
+   border: 0px solid black;
+   border-left: 1px solid black;
+}
+
+#table-area .item #edit {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+}
+
+#table-area .item #edit button {
+   background-color: white;
+   border: 1px solid black;
+   border-radius: 25px;
+   margin-right: 30px;
+   width: 200px;
+   height: 40px;
+}
+
+#table-area .item #edit button:hover {
+   cursor: pointer;
+}
+
+#add-item {
+   position: absolute;
+   background-color: white;
+   width: 500px;
+   display: none;
+   flex-direction: column;
+   align-items: center;
+   gap: 15px;
+   box-shadow: 0px 0px 2px 2px black;
+   padding: 80px 0px;
+}
+
+#add-item input[type="text"] {
+   width: 80%;
+   height: 30px;
+   padding-left: 10px;
+}
+
+#add-item input[type="submit"] {
+   height: 50px;
+   width: 80%;
+   margin-top: 20px;
+   border: 1px solid black;
+   border-radius: 25px;
+   background-color: var(--primary);
+   color: white;
+   font-size: 1.2rem;
+   font-weight: bolder;
+}
+
+#add-item input[type="submit"]:hover {
+   cursor: pointer;
+}
+
+#add-item #close {
+   width: 30px;
+   height: 30px;
+   position: absolute;
+   top: 30px;
+   right: 20px;
+   color: red;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-family: arial;
+   font-weight: bolder;
+   font-size: 1.5rem;
+}
+
+#add-item #close:hover {
+   background-color: #eeeeee;
+   cursor: pointer;
+}
+
+/*breakpoint t1*/
 @media (max-width: 600px) {
    body {
       display: flex;
@@ -107,11 +283,14 @@ nav div:hover {
    }
    #main-area {
       width: 100%;
-      background-color: white;
       height: calc(100% - 60px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+   }
+   #admin-utils #search-bar input[type="text"] {
+      width: calc(100% - 100px);
+   }
+   #admin-utils #search-bar input[type="submit"] {
+      width: 75px;
+      height: 75%;
    }
 }
 
@@ -150,9 +329,45 @@ nav div:hover {
       padding: 0px 50px;
    }
    #main-area {
+      width: calc(100% - 10px);
       grid-row: 2;
       grid-column: 2;
       border-right: 10px solid var(--primary);
       border-bottom: 10px solid var(--primary);
+   }
+}
+
+/* breakpoint t2 */
+@media (max-width: 850px) {
+   #admin-utils #buttons {
+      grid-row: 1;
+      grid-column: 2;
+   }
+
+   #admin-utils h1 {
+      grid-row: 1;
+      grid-column: 1;
+   }
+
+   #admin-utils #search-bar {
+      grid-row: 2;
+      grid-column: 1 / span 2;
+   }
+}
+
+@media (min-width: 851px) {
+   #admin-utils #buttons {
+      grid-row: 1;
+      grid-column: 1 / span 2;
+   }
+
+   #admin-utils h1 {
+      grid-row: 2;
+      grid-column: 1;
+   }
+
+   #admin-utils #search-bar {
+      grid-row: 2;
+      grid-column: 2;
    }
 }

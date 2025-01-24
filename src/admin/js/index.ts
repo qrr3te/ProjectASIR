@@ -20,7 +20,6 @@ function hide_nav(): void {
 menu_icon.addEventListener("click", show_nav);
 
 // reset default values when is chenged to mobile/normal mode
-
 addEventListener("resize", () => {
    if (window.innerWidth > 600) {
       nav.style.display = "flex";
@@ -35,25 +34,24 @@ addEventListener("resize", () => {
 const home_icon: HTMLElement = document.getElementById("home-icon")!;
 home_icon.addEventListener("click", () => location.href = "../index.php");
 
-// nav
-function show_nav_element(show_element: HTMLElement) {
-      document.querySelectorAll("nav div").forEach( (element: Element) => {
-         const target: string = element.innerHTML.toLowerCase();
-         const target_element: HTMLElement = document.getElementById(target)!;
-         target_element.style.display = "none";
-      })
-      show_element.style.display = "flex";
-}
-
+// nav functionality
 document.querySelectorAll("nav div").forEach( (element: Element) => {
-   const target: string = element.innerHTML.toLowerCase();
-   const target_element: HTMLElement = document.getElementById(target)!;
-   target_element.style.display = "none";
+   const panel: string = element.innerHTML.toLowerCase();
    
    element.addEventListener("click", () => {
-      show_nav_element(target_element);
-      if (window.innerWidth <= 600) {
-         hide_nav();
-      }
+      location.href = `index.php?panel=${panel}`
    })
+})
+
+// add item functionality
+let element: HTMLElement = document.getElementById("add-item-btn")!;
+let target_element: HTMLElement = document.getElementById("add-item")!;
+element.addEventListener("click", () => {
+   target_element.style.display = "flex";
+})
+
+element = document.getElementById("close")!;
+target_element = document.getElementById("add-item")!;
+element.addEventListener("click", () => {
+   target_element.style.display = "none";
 })

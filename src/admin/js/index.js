@@ -29,23 +29,21 @@ addEventListener("resize", function () {
 // home icon functionality
 var home_icon = document.getElementById("home-icon");
 home_icon.addEventListener("click", function () { return location.href = "../index.php"; });
-// nav
-function show_nav_element(show_element) {
-    document.querySelectorAll("nav div").forEach(function (element) {
-        var target = element.innerHTML.toLowerCase();
-        var target_element = document.getElementById(target);
-        target_element.style.display = "none";
-    });
-    show_element.style.display = "flex";
-}
+// nav functionality
 document.querySelectorAll("nav div").forEach(function (element) {
-    var target = element.innerHTML.toLowerCase();
-    var target_element = document.getElementById(target);
-    target_element.style.display = "none";
+    var panel = element.innerHTML.toLowerCase();
     element.addEventListener("click", function () {
-        show_nav_element(target_element);
-        if (window.innerWidth <= 600) {
-            hide_nav();
-        }
+        location.href = "index.php?panel=".concat(panel);
     });
+});
+// add item functionality
+var element = document.getElementById("add-item-btn");
+var target_element = document.getElementById("add-item");
+element.addEventListener("click", function () {
+    target_element.style.display = "flex";
+});
+element = document.getElementById("close");
+target_element = document.getElementById("add-item");
+element.addEventListener("click", function () {
+    target_element.style.display = "none";
 });
