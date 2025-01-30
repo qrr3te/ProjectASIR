@@ -56,15 +56,20 @@
    }
 
    .whatsapp-btn {
-       background-color: #ff7300;
-       color: #fff;
-       border: none;
-       padding: 10px 20px;
-       font-size: 14px;
-       border-radius: 5px;
-       cursor: pointer;
-   }
+    background-color: #ff7300;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; 
+    display: inline-block; 
+}
 
+.whatsapp-btn:hover {
+    background-color: #e65c00; 
+}
    .icons {
        display: flex;
        gap: 10px;
@@ -320,11 +325,12 @@
           <a href="#">Contacto</a>
       </nav>
       <div class="header-right">
-          <button class="whatsapp-btn">Contacta por WhatsApp</button>
-          <div class="icons">
-              <i class="fas fa-search"></i>
-              <i class="fas fa-user"></i>
-          </div>
+        <a href="https://wa.me/633487862?text=hola" class="whatsapp-btn" target="_blank">Contacta por WhatsApp</a>
+        <div class="icons">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-user"></i>
+    </div>
+</div>
       </div>
   </section>
 
