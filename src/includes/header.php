@@ -322,7 +322,7 @@
           <a href="/presupuesto.php">Solicitar Cita</a>
           <a href="#">Vehículos</a>
           <a href="/conocenos.php">Conócenos</a>
-          <a href="#">Contacto</a>
+          <a href="/contacto.php">Contacto</a>
       </nav>
       <div class="header-right">
         <a href="https://wa.me/633487862?text=hola" class="whatsapp-btn" target="_blank">Contacta por WhatsApp</a>
