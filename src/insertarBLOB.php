@@ -8,25 +8,31 @@ if ($conn->connect_error) {
 
 
 // Sacar la informacion de la imagen guardada en formato BLOB
-$ruta="corvette.jpg";
+$ruta="img/impala.jpg";
 $TamanioImagen=filesize($ruta);
+
 // la imagen q queramos subir debe estar en .jpg
 $LaImagen=fopen($ruta,"r");
-$BitsArchivo=fread($LaImagen, $TamanioImagen);
-fclose($LaImagen); 
 
-$imagen_binaria = $BitsArchivo;
+//Verificar que se abre la imagen correctamente
+if ($LaImagen === false) {
+    die("No se pudo abrir la imagen.");
+}
+
+$imagen_binaria=fread($LaImagen, $TamanioImagen);
+//$imagen_binaria=addslashes($imagen_binaria);
+fclose($LaImagen); 
 //toma Blob niño
 
 // Datos del coche
-$matricula = "1312ACB";
+$matricula = "4321XAO";
 $marca = "Chevrolet";
 $modelo = "Impala";
-$precio = 8000.0;
+$precio = 280999.0;
 
 // Preparar la consulta SQL para insertar los datos
 $stmt = $conn->prepare("INSERT INTO coche (matricula, marca, modelo, precio, imagen) VALUES (?, ?, ?, ?, ?)");
-$stmt->bind_param("ssdsb", $matricula, $marca, $modelo, $precio, $imagen_binaria);
+$stmt->bind_param("sssds", $matricula, $marca, $modelo, $precio, $imagen_binaria);
 
 // Ejecutar la consulta
 if ($stmt->execute()) {
