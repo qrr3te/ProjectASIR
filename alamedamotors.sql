@@ -21,21 +21,22 @@ CREATE TABLE admin (
 );
 
 CREATE TABLE coche (
-   matricula VARCHAR(50) PRIMARY KEY,
+   id int PRIMARY KEY AUTO_INCREMENT,
+   matricula VARCHAR(50) UNIQUE,
    marca varchar(255),
    modelo varchar(255),
    precio decimal(10, 2),
-   imagen blob
+   imagen longblob
 );
 
 CREATE TABLE comprar (
+   id int PRIMARY KEY AUTO_INCREMENT,
    fecha_de_compra date,
    precio decimal(10, 2),
    cliente_id int,
-   coche_id VARCHAR(50),
-   PRIMARY KEY AUTO_INCREMENT (cliente_id, coche_id),
+   coche_id int,
    FOREIGN KEY (cliente_id) references cliente(id),
-   FOREIGN KEY (coche_id) references coche(matricula)
+   FOREIGN KEY (coche_id) references coche(id)
 );
 
 CREATE TABLE cita (
@@ -49,6 +50,7 @@ CREATE TABLE cita (
 );
 
 CREATE TABLE carburantes (
+   id int PRIMARY KEY AUTO_INCREMENT,
    nombre varchar(255),
    precio decimal(10, 2)
 );
