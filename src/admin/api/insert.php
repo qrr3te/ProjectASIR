@@ -94,24 +94,22 @@ function insert() {
       case "blob":
       case "mediumblob":
       case "longblob":
-         if ($_FILES[$column->name]["size"] > 600000) {
+         if ($_FILES[$column->name]["size"] > (1024 * 1024)) {
             send_error("file too large");
          }
          $image_bin = base64_encode(file_get_contents($_FILES[$column->name]["tmp_name"]));
          array_push($values, $image_bin);
-         $data_types = $data_types . "b";
-         $long_data = true;
          break;
       default:
          array_push($values, $_POST[$column->name]);      
-         $data_types = $data_types . "s";
          break;
       }
+      $data_types = $data_types . "s";
       array_push($columns_name, $column->name);
    }
 
    if (sizeof($values) != sizeof($columns) - 1) {
-      send_error("value columns not matched");
+      send_error("fatal");
    }
 
    validate_row_content($columns, $values);
@@ -131,11 +129,6 @@ function insert() {
    $stmt = $conn->prepare($query);
    $stmt->bind_param($data_types, ...$values);
 
-   if ($long_data) {
-      foreach (str_split($image_bin, 1024) as $chunk) {
-         $stmt->send_long_data(4, $chunk);
-      }
-   }
    $executed = $stmt->execute();
    if ($executed) {
       send_status("success");

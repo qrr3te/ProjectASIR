@@ -140,8 +140,7 @@ nav div:hover {
 #table-area {
    width: 80%;
    max-width: 1500px;
-   height: 70%;
-   max-height: 800px;
+   height: 80%;
    border: 5px solid var(--secondary);
    overflow: scroll;
 }
@@ -204,9 +203,21 @@ nav div:hover {
    padding-left: 10px;
 }
 
-.form input[type="file"] {
+.form input[type="date"] {
    width: 80%;
    height: 30px;
+}
+
+.input-file {
+   width: 50%;
+   height: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   border: 0.5px solid black;
+   cursor: pointer;
+   border-radius: 20px;
 }
 
 .form input[type="button"] {
@@ -287,6 +298,9 @@ nav div:hover {
    .form {
       width: 350px;
    }
+   #table-area {
+      max-height: 600px;
+   }
 }
 
 @media (min-width: 601px) {
@@ -329,6 +343,9 @@ nav div:hover {
       grid-column: 2;
       border-right: 10px solid var(--primary);
       border-bottom: 10px solid var(--primary);
+   }
+   #table-area {
+      max-height: 80vh;
    }
 }
 
