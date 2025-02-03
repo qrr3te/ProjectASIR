@@ -74,5 +74,31 @@ function get_table_columns(string $table): array {
    return $database_columns;
 }
 
+function is_password(string $hash): bool {
+   $hash_info = password_get_info($hash);
+   if ($hash_info["algo"] == NULL) {
+      return false;
+   } else {
+      return true;
+   }
+}
+
+function get_table_values(string $table, string $id): array {
+   include("../../includes/connect.php");
+   $sql = "SELECT * FROM $table WHERE id = ?";
+   $stmt = $conn->prepare($sql);
+   $stmt->bind_param("s", $id);
+   $stmt->execute();
+   $result = $stmt->get_result();
+   $row = $result->fetch_row();
+
+   foreach ($row as $column_value) {
+      if (is_password($column_value)) {
+         $column_value = "*********";
+      }
+   }
+
+   return $row;
+}
 
 header("Content-type: application/json");

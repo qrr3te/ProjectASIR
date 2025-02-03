@@ -10,29 +10,45 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 function request_search(filter) {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch("/admin/api/search.php", {
+        const response = yield fetch("/admin/ajax/search.php", {
             headers: {
                 'Filter': `${filter}`
             }
         });
-        const response_json = yield response.json();
-        return response_json;
+        return yield response.json();
     });
 }
 function request_table_columns() {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch("/admin/api/get_columns.php");
-        const response_json = yield response.json();
-        return response_json;
+        const response = yield fetch("/admin/ajax/get_columns.php");
+        return yield response.json();
+    });
+}
+function request_table_values(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch("/admin/ajax/get_table_values.php", {
+            headers: {
+                'Id': `${id}`
+            }
+        });
+        return yield response.json();
     });
 }
 function request_insert(data) {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch("/admin/api/insert.php", {
+        const response = yield fetch("/admin/ajax/insert.php", {
             method: "POST",
             body: data,
         });
-        const response_json = yield response.json();
-        return response_json;
+        return yield response.json();
+    });
+}
+function request_update(data) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch("/admin/ajax/update.php", {
+            method: "POST",
+            body: data,
+        });
+        return yield response.json();
     });
 }

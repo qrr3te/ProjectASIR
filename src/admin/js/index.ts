@@ -9,6 +9,44 @@ enum FormType {
    Insert
 }
 
+function get_table(table_id: string): HTMLElement | false {
+   const table_area: HTMLElement = document.getElementById("table-area")!;
+   const tables: NodeListOf<HTMLElement> = table_area.querySelectorAll("table");
+   let table:HTMLElement;
+   
+   for (let i = 0; i < tables.length; i++) {
+      if (tables[i].getAttribute("table_id") == table_id) {
+         table = tables[i];
+      }
+   }
+
+   if (table! == undefined) {
+      return false
+   }
+
+   return table;
+}
+
+function update_table(id: string, values: Object): void {
+   const values_arr: Array<string> = Object.values(values);
+   const table = get_table(id);
+
+   if (!table) {
+      console.log("table not found");
+      return;
+   }
+
+   const fields: HTMLCollectionOf<Element> = table!.getElementsByClassName("field-value");
+   
+   for (let i = 0; i < fields.length; i++) {
+      if (fields[i].hasAttribute("is-image")) {
+         request_search().then( (rows: any[]) => populate_table_area(rows) ); 
+         return;
+      } 
+      fields[i].innerHTML = values_arr[i];
+   }
+}
+
 // returns submit button and assing events depending on form type
 function create_submit_button(form: HTMLFormElement, form_type: FormType): HTMLInputElement {
    const input_submit:HTMLInputElement = document.createElement("input");
@@ -18,16 +56,23 @@ function create_submit_button(form: HTMLFormElement, form_type: FormType): HTMLI
       case FormType.Edit:
          input_submit.setAttribute("value", "Actualizar valores");
          input_submit.addEventListener("click", () => {
-            // todo
+            const data:FormData = new FormData(form);
+            const id_input:HTMLInputElement = form.querySelector("input[name=id]")!;
+            const id_value = id_input.value;
+            request_update(data)
+               .then( () => request_table_values(id_value))
+               .then( values => update_table(id_value, values) );
          })
+         break;
       case FormType.Insert:
          input_submit.setAttribute("value", "Insertar valores");
          input_submit.addEventListener("click", () => {
-            const data = new FormData(form);
+            const data:FormData = new FormData(form);
             request_insert(data)
                .then( () => request_search())
-               .then( fields => populate_table_area(fields))
+               .then( fields => populate_table_area(fields));
          })
+         break;
    }
    return input_submit;
 }
@@ -53,6 +98,9 @@ function create_input_field(column: DatabaseColumn, value: string | undefined): 
    
    switch (column.data_type) {
       case "date":
+         if (value !== undefined) {
+            input.setAttribute("value", value);
+         }
          input.setAttribute("type", "date");
          break;
       case "blob":
@@ -66,9 +114,15 @@ function create_input_field(column: DatabaseColumn, value: string | undefined): 
          input.style.display = "none";
          return {input, label};
       default:
+         if (column.name == "password") {
+            input.setAttribute("type", "password");
+            break;
+         }
+
          if (value !== undefined) {
             input.setAttribute("value", value);
-         }
+         } 
+
          input.setAttribute("type", "text");
          break;
    }
@@ -130,6 +184,8 @@ function create_item_field(column: DatabaseColumn, value: string): HTMLElement {
       const image_element: HTMLElement = document.createElement("img"); 
       const imagen_bin_data: string = value;
       image_element.setAttribute("src", `data:image/jpg;base64,${imagen_bin_data}`)
+      image_element.setAttribute("class", "field-value")
+      image_element.setAttribute("is-image", "")
       const image_copy: HTMLElement = (image_element.cloneNode() as HTMLElement); 
 
       image_element.setAttribute("width", "50px");
@@ -144,7 +200,7 @@ function create_item_field(column: DatabaseColumn, value: string): HTMLElement {
 
       value_element.appendChild(image_element);
    } else {
-      value_element.innerHTML = "<span>" + value + "</span>";
+      value_element.innerHTML = "<span class='field-value'>" + value + "</span>";
    }
 
    field.appendChild(key_element);

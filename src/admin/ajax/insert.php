@@ -82,7 +82,6 @@ function insert() {
       $_POST["password"] = password_hash($_POST["password"], PASSWORD_ARGON2ID);
    }
 
-   $long_data = false;
    $columns_name = [];
    $values = [];
    $data_types = "";

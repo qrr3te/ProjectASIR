@@ -13,6 +13,32 @@ var FormType;
     FormType[FormType["Edit"] = 0] = "Edit";
     FormType[FormType["Insert"] = 1] = "Insert";
 })(FormType || (FormType = {}));
+function get_table(table_id) {
+    const table_area = document.getElementById("table-area");
+    const tables = table_area.querySelectorAll("table");
+    let table;
+    for (let i = 0; i < tables.length; i++) {
+        if (tables[i].getAttribute("table_id") == table_id) {
+            table = tables[i];
+        }
+    }
+    if (table == undefined) {
+        return false;
+    }
+    return table;
+}
+function update_table(id, values) {
+    const values_arr = Object.values(values);
+    const table = get_table(id);
+    if (!table) {
+        console.log("table not found");
+        return;
+    }
+    const fields = table.getElementsByClassName("field-value");
+    for (let i = 0; i < fields.length; i++) {
+        fields[i].innerHTML = values_arr[i];
+    }
+}
 // returns submit button and assing events depending on form type
 function create_submit_button(form, form_type) {
     const input_submit = document.createElement("input");
@@ -21,8 +47,14 @@ function create_submit_button(form, form_type) {
         case FormType.Edit:
             input_submit.setAttribute("value", "Actualizar valores");
             input_submit.addEventListener("click", () => {
-                // todo
+                const data = new FormData(form);
+                const id_input = form.querySelector("input[name=id]");
+                const id_value = id_input.value;
+                request_update(data)
+                    .then(() => request_table_values(id_value))
+                    .then(values => update_table(id_value, values));
             });
+            break;
         case FormType.Insert:
             input_submit.setAttribute("value", "Insertar valores");
             input_submit.addEventListener("click", () => {
@@ -31,6 +63,7 @@ function create_submit_button(form, form_type) {
                     .then(() => request_search())
                     .then(fields => populate_table_area(fields));
             });
+            break;
     }
     return input_submit;
 }
@@ -51,6 +84,9 @@ function create_input_field(column, value) {
     const rand_id = "input-" + (Math.random() * 1000000000000);
     switch (column.data_type) {
         case "date":
+            if (value !== undefined) {
+                input.setAttribute("value", value);
+            }
             input.setAttribute("type", "date");
             break;
         case "blob":
@@ -64,6 +100,10 @@ function create_input_field(column, value) {
             input.style.display = "none";
             return { input, label };
         default:
+            if (column.name == "password") {
+                input.setAttribute("type", "password");
+                break;
+            }
             if (value !== undefined) {
                 input.setAttribute("value", value);
             }
@@ -129,7 +169,7 @@ function create_item_field(column, value) {
         value_element.appendChild(image_element);
     }
     else {
-        value_element.innerHTML = "<span>" + value + "</span>";
+        value_element.innerHTML = "<span class='field-value'>" + value + "</span>";
     }
     field.appendChild(key_element);
     field.appendChild(value_element);
