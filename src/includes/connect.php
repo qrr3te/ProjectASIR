@@ -1,5 +1,5 @@
 <?php
-$mysqli_servername = "mysql-db";
+$mysqli_servername = "172.20.0.11";
 $mysqli_username = "asir";
 $mysqli_password = "ArchTheBest";
 $mysqli_database = "alamedamotors";

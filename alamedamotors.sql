@@ -1,6 +1,6 @@
 use alamedamotors;
 
-CREATE TABLE cliente (
+CREATE TABLE IF NOT EXISTS cliente (
    id int PRIMARY KEY AUTO_INCREMENT,
    username varchar(50) NOT NULL UNIQUE,
    nombre varchar(255),
@@ -10,7 +10,7 @@ CREATE TABLE cliente (
    password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE admin (
+CREATE TABLE IF NOT EXISTS admin (
    id int PRIMARY KEY AUTO_INCREMENT,
    username varchar(50) NOT NULL UNIQUE,
    nombre varchar(255),
@@ -20,7 +20,7 @@ CREATE TABLE admin (
    password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE coche (
+CREATE TABLE IF NOT EXISTS coche (
    id int PRIMARY KEY AUTO_INCREMENT,
    matricula VARCHAR(50) UNIQUE,
    marca varchar(255),
@@ -29,7 +29,7 @@ CREATE TABLE coche (
    imagen longblob
 );
 
-CREATE TABLE comprar (
+CREATE TABLE IF NOT EXISTS comprar (
    id int PRIMARY KEY AUTO_INCREMENT,
    fecha_de_compra date,
    precio decimal(10, 2),
@@ -39,7 +39,7 @@ CREATE TABLE comprar (
    FOREIGN KEY (coche_id) references coche(id)
 );
 
-CREATE TABLE cita (
+CREATE TABLE IF NOT EXISTS cita (
    id int(12) PRIMARY KEY AUTO_INCREMENT,
    marca varchar(255),
    modelo varchar(255),
@@ -49,7 +49,7 @@ CREATE TABLE cita (
    FOREIGN KEY (cliente_id) references cliente(id)
 );
 
-CREATE TABLE carburantes (
+CREATE TABLE IF NOT EXISTS carburantes (
    id int PRIMARY KEY AUTO_INCREMENT,
    nombre varchar(255),
    precio decimal(10, 2)
