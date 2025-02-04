@@ -1,4 +1,6 @@
 <?php
+include("../../includes/connect.php");
+
 function check_privileges(): bool {
    session_start();
    $admin_status = $_SESSION["admin_status"] ?? false;
@@ -17,28 +19,27 @@ function send_error($error) {
 
 // safely returns the associated table to the current panel
 function get_table(): string {
+   global $conn_root;
+   global $mysqli_database;
    $table = $_COOKIE["table"] ?? false;
 
-   if ($table == false) {
+   if (!$table) {
       send_error("table not selected");
    } 
-
-   // Prevent sqli by changing table cookie
-   $tables = [
-      "cliente",
-      "cita",
-      "comprar",
-      "coche",
-      "carburantes"
-   ];
-   
-   foreach ($tables as $valid_table) {
-      if ($valid_table === $table) {
-         return $table;
-      }
+   if ($table == "admin") {
+      send_error("ivalid table");
    }
 
-   send_error("TABLE INVALID");
+   $sql = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '$mysqli_database' AND TABLE_NAME = ?";
+   $stmt = $conn_root->prepare($sql);
+   $stmt->bind_param("s", $table);
+   $stmt->execute();
+   $result = $stmt->get_result();
+   if ($result->lengths == 0) {
+      return $table; 
+   } else {
+      send_error("invalid table");
+   }
 }
 
 
@@ -49,7 +50,7 @@ class DatabaseData {
 }
 
 function get_table_columns(string $table): array {
-   include "../../includes/connect.php";
+   global $conn_root;
    $sql = "SELECT COLUMN_NAME, DATA_TYPE, COLUMN_KEY FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME=?";
    $stmt = $conn_root->prepare($sql);
    $stmt->bind_param("s", $table);
@@ -84,7 +85,7 @@ function is_password(string $hash): bool {
 }
 
 function get_table_values(string $table, string $id): array {
-   include("../../includes/connect.php");
+   global $conn;
    $sql = "SELECT * FROM $table WHERE id = ?";
    $stmt = $conn->prepare($sql);
    $stmt->bind_param("s", $id);
