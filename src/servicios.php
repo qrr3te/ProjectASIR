@@ -16,21 +16,27 @@
     <div class="container">
         <h1>Servicios</h1>
         <div class="services">
+        <a href="presupuesto.php" style="text-decoration: none; color: inherit;">
             <div class="service-box">
                 <img src="img/servicios-taller.jpg" alt="Servicio de taller">
                 <h3>Servicio de taller</h3>
                 <p>Ponemos a tu disposicion nuestro servicio de taller, en el podras pedir cita para diversos servicios relacionados con el mantenimiento de su vehiculo.</p>
             </div>
+        </a>
+        <a href="presupuesto.php" style="text-decoration: none; color: inherit;">
             <div class="service-box">
                 <img src="img/" alt="Entrega a domicilio">
                 <h3>Venta de Vehiculos</h3>
                 <p>Le entregamos el coche en su domicilio personalmente o mediante agencia, usted elige.</p>
             </div>
+        </a>
+            <a href="presupuesto.php" style="text-decoration: none; color: inherit;">
             <div class="service-box">
                 <img src="img/dinergia_adisabe1.jpg" alt="Puta mierda">
                 <h3>Venta de Carburante</h3>
                 <p>Los mejores carburantes de la zona, disftuta de los mejores precios en mano de los mejores profesionales</p>
             </div>
+            </a>
         </div>
     </div>
     <footer class="footer">
