@@ -62,11 +62,11 @@ $table = $table_provided;
 
       <div id="main-area">
          <form id="add-item" class="form">
-            <span class="close" id="close-add-item">X</span>
+            <span class="close" id="close-add-item">☓</span>
          </form>
 
          <form id="edit-item" class="form">
-            <span class="close" id="close-edit-item">X</span>
+            <span class="close" id="close-edit-item">☓</span>
          </form>
 
          <div id="admin-utils">

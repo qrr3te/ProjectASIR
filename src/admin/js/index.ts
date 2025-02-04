@@ -208,18 +208,35 @@ function create_item_field(column: DatabaseColumn, value: string): HTMLElement {
    return field;
 }
 
-// returns tr element as header for database row
-function create_row_header(row_header: Number | string, columns: DatabaseColumn[], field: Object): HTMLElement {
-   const field_header: HTMLElement = document.createElement("tr");
-   const tag: HTMLElement = document.createElement("th");
-   const edit: HTMLElement = document.createElement("td");
-   const edit_btn: HTMLElement = document.createElement("button");
+// returns div element as a header for the target table
+function create_table_header(id: Number | string, columns: DatabaseColumn[], field: Object, target_table: HTMLElement): HTMLElement {
+   const table_header = document.createElement("div");
+   table_header.setAttribute("class", "table-header");
 
-   field_header.setAttribute("class", "field");
-   tag.setAttribute("class", "tag");
-   edit.setAttribute("class", "edit");
-   tag.innerHTML = "Fila " + row_header;
-   edit_btn.innerHTML = "editar";
+   const show_table_btn = document.createElement("span");
+   show_table_btn.innerHTML = `table ${id}`;
+   show_table_btn.setAttribute("class", "show-table-btn");
+   show_table_btn.innerHTML = "▸";
+
+   // show or hide target_table 
+   show_table_btn.addEventListener ("click", () => {
+      if (target_table.style.display != "none") {
+         target_table.style.display = "none";
+         show_table_btn.innerHTML = "▸"
+      } else {
+         target_table.style.display = "table";
+         show_table_btn.innerHTML = "▾"
+      }
+   })
+
+
+   const title = document.createElement("span");
+   title.innerHTML = `table ${id}`;
+   title.setAttribute("class", "table-title");
+
+   const edit_btn: HTMLElement = document.createElement("button");
+   edit_btn.innerHTML = "Editar tabla";
+   edit_btn.setAttribute("class", "edit-table-btn");
    
    // edit button functionality
    const edit_item_form: HTMLFormElement = (document.getElementById("edit-item")! as HTMLFormElement);
@@ -230,11 +247,11 @@ function create_row_header(row_header: Number | string, columns: DatabaseColumn[
       populate_form(edit_item_form, columns, FormType.Edit, field);
    });
 
-   field_header.appendChild(tag);
-   field_header.appendChild(edit);
-   edit.appendChild(edit_btn);
+   table_header.appendChild(show_table_btn);
+   table_header.appendChild(title);
+   table_header.appendChild(edit_btn);
 
-   return field_header;
+   return table_header;
 }
 
 // populate table area with database fields 
@@ -255,17 +272,19 @@ async function populate_table_area(rows: Array<any>) {
          } 
       }
 
-      const item: HTMLElement = document.createElement("table");
-      item.setAttribute("class", "item");
-      item.setAttribute("table_id", id);
-      
-      const row_header = i + 1;
-      item.appendChild(create_row_header(row_header, columns, current_row));
-      table_area.appendChild(item);
+      const table: HTMLElement = document.createElement("table");
+      table.setAttribute("class", "item");
+      table.setAttribute("table_id", id);
+
+      // table is hide by default
+      table.style.display = "none";
+
+      table_area.appendChild(create_table_header(id, columns, current_row, table));
+      table_area.appendChild(table);
       
       columns.forEach( (column) => {
          const value = current_row[column.name];
-         item.appendChild(create_item_field(column, value));
+         table.appendChild(create_item_field(column, value));
       })
 
    } 

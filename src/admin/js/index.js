@@ -36,6 +36,10 @@ function update_table(id, values) {
     }
     const fields = table.getElementsByClassName("field-value");
     for (let i = 0; i < fields.length; i++) {
+        if (fields[i].hasAttribute("is-image")) {
+            request_search().then((rows) => populate_table_area(rows));
+            return;
+        }
         fields[i].innerHTML = values_arr[i];
     }
 }
@@ -157,6 +161,8 @@ function create_item_field(column, value) {
         const image_element = document.createElement("img");
         const imagen_bin_data = value;
         image_element.setAttribute("src", `data:image/jpg;base64,${imagen_bin_data}`);
+        image_element.setAttribute("class", "field-value");
+        image_element.setAttribute("is-image", "");
         const image_copy = image_element.cloneNode();
         image_element.setAttribute("width", "50px");
         image_element.style.cursor = "pointer";
@@ -175,17 +181,31 @@ function create_item_field(column, value) {
     field.appendChild(value_element);
     return field;
 }
-// returns tr element as header for database row
-function create_row_header(row_header, columns, field) {
-    const field_header = document.createElement("tr");
-    const tag = document.createElement("th");
-    const edit = document.createElement("td");
+// returns div element as a header for the target table
+function create_table_header(id, columns, field, target_table) {
+    const table_header = document.createElement("div");
+    table_header.setAttribute("class", "table-header");
+    const show_table_btn = document.createElement("span");
+    show_table_btn.innerHTML = `table ${id}`;
+    show_table_btn.setAttribute("class", "show-table-btn");
+    show_table_btn.innerHTML = "▸";
+    // show or hide target_table 
+    show_table_btn.addEventListener("click", () => {
+        if (target_table.style.display != "none") {
+            target_table.style.display = "none";
+            show_table_btn.innerHTML = "▸";
+        }
+        else {
+            target_table.style.display = "table";
+            show_table_btn.innerHTML = "▾";
+        }
+    });
+    const title = document.createElement("span");
+    title.innerHTML = `table ${id}`;
+    title.setAttribute("class", "table-title");
     const edit_btn = document.createElement("button");
-    field_header.setAttribute("class", "field");
-    tag.setAttribute("class", "tag");
-    edit.setAttribute("class", "edit");
-    tag.innerHTML = "Fila " + row_header;
-    edit_btn.innerHTML = "editar";
+    edit_btn.innerHTML = "Editar tabla";
+    edit_btn.setAttribute("class", "edit-table-btn");
     // edit button functionality
     const edit_item_form = document.getElementById("edit-item");
     const add_item_form = document.getElementById("add-item");
@@ -194,10 +214,10 @@ function create_row_header(row_header, columns, field) {
         add_item_form.style.display = "none";
         populate_form(edit_item_form, columns, FormType.Edit, field);
     });
-    field_header.appendChild(tag);
-    field_header.appendChild(edit);
-    edit.appendChild(edit_btn);
-    return field_header;
+    table_header.appendChild(show_table_btn);
+    table_header.appendChild(title);
+    table_header.appendChild(edit_btn);
+    return table_header;
 }
 // populate table area with database fields 
 function populate_table_area(rows) {
@@ -214,15 +234,16 @@ function populate_table_area(rows) {
                     break;
                 }
             }
-            const item = document.createElement("table");
-            item.setAttribute("class", "item");
-            item.setAttribute("table_id", id);
-            const row_header = i + 1;
-            item.appendChild(create_row_header(row_header, columns, current_row));
-            table_area.appendChild(item);
+            const table = document.createElement("table");
+            table.setAttribute("class", "item");
+            table.setAttribute("table_id", id);
+            // table is hide by default
+            table.style.display = "none";
+            table_area.appendChild(create_table_header(id, columns, current_row, table));
+            table_area.appendChild(table);
             columns.forEach((column) => {
                 const value = current_row[column.name];
-                item.appendChild(create_item_field(column, value));
+                table.appendChild(create_item_field(column, value));
             });
         }
     });
