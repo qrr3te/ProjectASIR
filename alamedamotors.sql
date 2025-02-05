@@ -60,3 +60,11 @@ CREATE TABLE carburantes (
    precio decimal(10, 2)
 );
 
+CREATE TABLE servicios (
+   id int PRIMARY KEY AUTO_INCREMENT,
+   nombre varchar(255),
+   descripcion varchar(255),
+   url varchar(255),
+   imagen longblob
+);
+
