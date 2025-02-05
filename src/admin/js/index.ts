@@ -214,7 +214,6 @@ function create_table_header(id: Number | string, columns: DatabaseColumn[], fie
    table_header.setAttribute("class", "table-header");
 
    const show_table_btn = document.createElement("span");
-   show_table_btn.innerHTML = `table ${id}`;
    show_table_btn.setAttribute("class", "show-table-btn");
    show_table_btn.innerHTML = "▸";
 
@@ -229,13 +228,13 @@ function create_table_header(id: Number | string, columns: DatabaseColumn[], fie
       }
    })
 
-
    const title = document.createElement("span");
-   title.innerHTML = `table ${id}`;
+   const table = document.cookie.split("table=")[1].split(";")[0];
+   title.textContent = `${table} ${id}`;
    title.setAttribute("class", "table-title");
 
    const edit_btn: HTMLElement = document.createElement("button");
-   edit_btn.innerHTML = "Editar tabla";
+   edit_btn.innerHTML = "Edit";
    edit_btn.setAttribute("class", "edit-table-btn");
    
    // edit button functionality
@@ -247,17 +246,32 @@ function create_table_header(id: Number | string, columns: DatabaseColumn[], fie
       populate_form(edit_item_form, columns, FormType.Edit, field);
    });
 
+   // delete represented row functionality
+   const delete_btn: HTMLElement = document.createElement("button");
+   delete_btn.innerHTML = "&#128465;";
+   delete_btn.setAttribute("class", "delete-table-btn"); // table in the ui but row in the database
+
+   // delete row functionality
+   delete_btn.addEventListener("click", () => {
+      const id = target_table.getAttribute("table_id")!;
+      table_header.style.display = "none";
+      target_table.style.display = "none";
+      request_delete(id)
+   })
+
    table_header.appendChild(show_table_btn);
    table_header.appendChild(title);
    table_header.appendChild(edit_btn);
+   table_header.appendChild(delete_btn);
 
    return table_header;
 }
 
 // populate table area with database fields 
 async function populate_table_area(rows: Array<any>) {
+
    const table_area: HTMLElement = document.getElementById("table-area")!;
-   table_area.textContent = "";
+   table_area.innerHTML = "";
 
    const columns:Array<DatabaseColumn> = await request_table_columns();
 
@@ -289,10 +303,29 @@ async function populate_table_area(rows: Array<any>) {
 
    } 
 }
+const home_area = document.getElementById("home-area")!;
+const main_area = document.getElementById("main-area")!;
+
+// show current area hide the another one
+function show_current_area(current_area: HTMLElement) {
+   current_area.style.display = "grid";
+   if (current_area.id == "home-area") {
+      main_area.style.display = "none";
+   } else {
+      home_area.style.display = "none";
+   }
+}
+
+// current_area is declared in mobile.ts
+current_area = home_area;
+show_current_area(current_area);
 
 // home icon functionality
 const home_icon: HTMLElement = document.getElementById("home-icon")!;
-home_icon.addEventListener("click", () => location.href = "../index.php");
+home_icon.addEventListener("click", () => {
+   current_area = home_area;
+   show_current_area(current_area);
+});
 
 // Edit and add forms functionality
 const add_item_form: HTMLFormElement = (document.getElementById("add-item")! as HTMLFormElement);
@@ -319,11 +352,14 @@ close_edit_item.addEventListener("click", () => {
 // nav functionality
 document.querySelectorAll("nav div").forEach( (element: Element) => {
    const table:string = element.getAttribute("table")!;
-
    element.addEventListener("click", () => {
       if (window.innerWidth <= 600) {
          hide_nav();
       }
+
+      current_area = main_area;
+      show_current_area(current_area);
+
       add_item_form.style.display = "none";
       edit_item_form.style.display = "none";
       document.cookie = "table=" + table 

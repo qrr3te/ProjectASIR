@@ -36,3 +36,13 @@ async function request_update(data: FormData): Promise<any> {
    });
    return await response.json();
 }
+
+async function request_delete(id: String): Promise<any> {
+   const response:Response = await fetch("/admin/ajax/delete.php", {
+      method: "POST",
+      headers: {
+         'Id': `${id}`
+      }
+   });
+   return await response.json();
+}

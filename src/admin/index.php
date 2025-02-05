@@ -9,6 +9,7 @@ if (!$admin_status) {
    die();
 }
 
+$_COOKIE["table"] = "none";
 $table_array = get_tables_array();
 
 ?>
@@ -19,6 +20,7 @@ $table_array = get_tables_array();
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href="css/style.css" rel="stylesheet">
+      <link href="css/home.css" rel="stylesheet">
    </head>
    <body>
       <header>
@@ -41,7 +43,11 @@ $table_array = get_tables_array();
          <?php endforeach; ?>
       </nav>
 
-      <div id="main-area">
+      <div id="home-area">
+         <h1>Server Stats placeholder</h1> 
+      </div>
+
+      <div id="main-area" style="display: none">
          <form id="add-item" class="form">
             <span class="close" id="close-add-item">☓</span>
          </form>
@@ -52,8 +58,7 @@ $table_array = get_tables_array();
 
          <div id="admin-utils">
             <div id="buttons">
-               <button id="add-item-btn">+</button>
-               <button id="remove-item-btn">-</button>
+               <button id="add-item-btn">ADD</button>
             </div>
             <h1 id="panel-title"></h1>
             <div id="search-bar">

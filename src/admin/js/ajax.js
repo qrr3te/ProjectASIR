@@ -52,3 +52,14 @@ function request_update(data) {
         return yield response.json();
     });
 }
+function request_delete(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch("/admin/ajax/delete.php", {
+            method: "POST",
+            headers: {
+                'Id': `${id}`
+            }
+        });
+        return yield response.json();
+    });
+}

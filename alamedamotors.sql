@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS coche (
    imagen longblob
 );
 
-CREATE TABLE IF NOT EXISTS comprar (
+CREATE TABLE IF NOT EXISTS compra (
    id int PRIMARY KEY AUTO_INCREMENT,
    fecha_de_compra date,
    precio decimal(10, 2),
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS cita (
    FOREIGN KEY (cliente_id) references cliente(id)
 );
 
-CREATE TABLE IF NOT EXISTS carburantes (
+CREATE TABLE IF NOT EXISTS carburante (
    id int PRIMARY KEY AUTO_INCREMENT,
    nombre varchar(255),
    precio decimal(10, 2)
