@@ -53,8 +53,10 @@ Se puede trabajar directamente en la rama main si:
 - [ ] Mostrar carburantes - **Branched**   
 
 ### Administrador
-- [ ] Login - **branched**
-- [ ] Abstracción de la base de datos (CRUD) - **Branched**
+- [x] Login
+- [x] Abstracción de la base de datos (CRUD)
+- [ ] Validación de datos y manejo de errores
+- [ ] Estadisticas del servidor como página principal 
 
 ## Setup del proyecto:
 1. Clona el repositorio:
@@ -62,8 +64,6 @@ Se puede trabajar directamente en la rama main si:
     git clone https://github.com/tu-usuario/ProjectASIR.git
     cd ProjectASIR
     ```
-2. `docker-compose up -d`
-3. `mariadb -h 127.0.0.1 -u asir -p`
-4. Insertar contraseña: ArchTheBest
-5. `source alamedamotors.sql`
+2. Es necesario instalar php localmente para correr el script de instalación
+2. `./setup.sh`
 
