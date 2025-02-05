@@ -101,6 +101,7 @@
       <span>|</span>
       <a href="/cookies.php">Política de cookies</a>
     </div>
+
     </footer>
 </body>
 

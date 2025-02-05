@@ -307,17 +307,18 @@
 
 <header>
   <section class="main-header">
-    <a href="index.html">
+
       <div class="logo"><img src="img/logo.png" alt="">
       </div>
-    </a>
       <nav class="nav-menu">
           <a href="/index.php">Inicio</a>
           <a href="/servicios.php">Servicios</a>
-          <a href="/presupuesto.php">Solicitar Cita</a>
+          <a href="/presupuesto.php">Solicitar Presupuesto</a>
           <a href="#">Vehículos</a>
           <a href="/conocenos.php">Conócenos</a>
           <a href="#">Contacto</a>
+          <a href="#">Carburantes</a>
+
       </nav>
       <div class="header-right">
           <button class="whatsapp-btn">Contacta por WhatsApp</button>

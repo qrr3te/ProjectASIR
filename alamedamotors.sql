@@ -46,12 +46,32 @@ CREATE TABLE IF NOT EXISTS cita (
    fecha date,
    servicio_solicitado varchar(255),
    cliente_id int,
+<<<<<<< HEAD
    FOREIGN KEY (cliente_id) references cliente(id)
 );
 
 CREATE TABLE IF NOT EXISTS carburante (
    id int PRIMARY KEY AUTO_INCREMENT,
+=======
+   historial_id int,
+   FOREIGN KEY (cliente_id) references cliente(id),
+   FOREIGN KEY (historial_id) references historial(id)
+);
+
+CREATE TABLE carburantes (
+>>>>>>> Servicios
    nombre varchar(255),
    precio decimal(10, 2)
 );
 
+<<<<<<< HEAD
+=======
+CREATE TABLE servicios (
+   id int PRIMARY KEY AUTO_INCREMENT,
+   nombre varchar(255),
+   descripcion varchar(255),
+   url varchar(255),
+   imagen longblob
+);
+
+>>>>>>> Servicios

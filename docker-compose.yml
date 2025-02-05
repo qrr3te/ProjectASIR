@@ -29,7 +29,6 @@ services:
     depends_on:
       - php-fpm  # Depends on the PHP-FPM service
       - mysql-db  # Depends on the MySQL database service
-
  # MySQL Database Service
   mysql-db:
     image: mariadb:latest

@@ -81,6 +81,11 @@
   </section>
   <section class="cta-section">
     <div class="cta-card">
+      <h3>Solicitar Presupuesto</h3>
+      <p>Obtén un presupuesto detallado para el servicio que necesitas. Es rápido y sencillo.</p>
+      <button onclick="window.location.href='#presupuesto-form'">Solicitar Presupuesto</button>
+    </div>
+    <div class="cta-card">
       <h3>Pedir Cita Previa</h3>
       <p>Programa tu visita con nosotros y evita esperas innecesarias.</p>
       <button onclick="window.location.href='#cita-form'">Pedir Cita</button>
