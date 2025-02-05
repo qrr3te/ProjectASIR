@@ -47,7 +47,7 @@ Se puede trabajar directamente en la rama main si:
 - [x] Conocenos
 - [ ] Formulario de contacto - **Branched**
 - [ ] vehículos - **Branched**
-- [ ] Servicios - **Branched**
+- [x] Servicios
 - [x] Login/Registro cliente
 - [ ] Mostrar citas del cliente
 - [ ] Mostrar carburantes - **Branched**   
