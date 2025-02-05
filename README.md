@@ -43,14 +43,14 @@ Se puede trabajar directamente en la rama main si:
 
 ### Cliente
 - [x] Portada de la web
-- [x] Formulario de presupuesto
+- [ ] Formulario de presupuesto **Branched**
 - [x] Conocenos
 - [ ] Formulario de contacto - **Branched**
 - [ ] vehículos - **Branched**
-- [ ] Servicios - **Branched**
+- [x] Servicios
 - [x] Login/Registro cliente
 - [ ] Mostrar citas del cliente
-- [ ] Mostrar carburantes   
+- [ ] Mostrar carburantes - **Branched**   
 
 ### Administrador
 - [ ] Login - **branched**
