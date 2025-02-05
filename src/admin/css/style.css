@@ -1,0 +1,465 @@
+:root {
+   --primary: #ff7300;
+   --secondary: #2a3eb1;
+   --hover-btn: rgba(255, 255, 255, 0.80);
+}
+
+* {
+   padding: 0;   
+   margin: 0;
+}
+
+html {
+   width: 100vw;
+   height: 100vh;
+}
+
+body {
+   width: 100%;
+   height: 100%;
+}
+
+header {
+   width: 100%;
+   height: 60px;
+   background-color: var(--primary);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+header #normal, header #mobile {
+   display: none;
+}
+
+header #user {
+   display: flex; 
+   gap: 10px;
+   align-items: center;
+   color: white;
+   font-size: 1.5rem;
+   font-family: Verdana, sans-serif;
+   text-decoration: underline solid white;
+}
+
+header #user svg {
+   margin-right: 10px;
+}
+
+nav {
+   display: flex;
+   flex-direction: column;
+   color: black;
+   align-items: center;
+}
+
+nav div{
+   height: 50px;
+   width: 100px;
+   display: flex;
+   align-items: center;
+   font-size: 1.2rem;
+   font-family: Verdana;
+}
+
+nav div:first-child {
+   margin-top: 50px;
+}
+
+nav div:hover {
+   background-color: var(--secondary);
+   cursor: pointer;
+   color: white;
+}
+
+#main-area {
+   background-color: white;
+   display: grid;
+   max-height: calc(100vh - 60px - 10px);
+   grid-template-rows: 200px 1fr 25px;
+   grid-template-columns: 1fr;
+}
+
+#admin-utils {
+   height: 75px;
+   width: 80%;
+   max-width: 1500px;
+   background-color: var(--secondary);
+   border: 5px solid var(--secondary);
+   border-radius: 50px;
+   grid-row: 1;
+   align-self: center;
+   justify-self: center;
+
+   display: grid;
+   grid-template-rows: 1fr;
+   grid-template-columns: 250px 1fr 140px;
+}
+
+#admin-utils #buttons {
+   justify-self: center;
+   align-self: center;
+   margin-right: 10px;
+}
+
+#admin-utils #buttons button {
+   width: 100px;
+   height: 40px;
+   font-size: 1.2rem;
+   font-weight: bolder;
+   background-color: white;
+   border: 1px solid black !important; 
+   border-radius: 30px;
+   box-shadow: 0px 0px !important;
+   cursor: pointer;
+}
+
+#admin-utils #buttons button:hover {
+   background-color: var(--hover-btn);
+}
+
+#admin-utils h1 {
+   justify-self: center;
+   align-self: center;
+   color: white;
+   height: 35px;
+   display: flex;
+   align-items: center;
+}
+
+#admin-utils #search-bar {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+
+#admin-utils #search-bar input[type="text"] {
+   width: calc(100% - 100px);
+   height: 40px;
+   font-size: 1.5rem;
+   border: 1px solid black;
+   border-radius: 10px;
+   padding-left: 15px;
+   padding-right: 5px;
+}
+
+#table-area {
+   height: 100%;
+   width: 80%;
+   max-width: 1500px;
+   overflow-y: scroll;
+   background-color: #F6F6F6;
+   border-radius: 25px;
+   grid-row: 2;
+   align-self: center;
+   justify-self: center;
+}
+
+#table-area table {
+   width: 100%;
+   background-color: white;
+   border-collapse: collapse;
+   border-bottom: 1px solid white;
+}
+
+#table-area table td,th{
+   height: 50px;
+   text-align: start;
+   border: 1px solid black;
+   padding-left: 15px;
+}
+
+.table-header {
+   height: 60px;
+   background-color: var(--secondary);
+   font-size: 1.3rem;
+
+   display: grid;
+   grid-template-rows: 1fr;
+   grid-template-columns: 30px 200px 1fr 40px;
+}
+
+.table-header:not(:first-child) {
+   margin-top: 5px;
+}
+
+.table-header .show-table-btn {
+   font-size: 1.7rem;
+   color: white;
+   grid-row: 1;
+   justify-self: center;
+   align-self: center;
+   grid-column: 1;
+   cursor: pointer;
+}
+
+.table-header .table-title {
+   font-size: 1.5rem;
+   font-weight: bold;
+   color: white;
+
+   grid-row: 1;
+   grid-column: 2;
+   justify-self: flex-start;
+   align-self: center;
+}
+
+.table-header .edit-table-btn {
+   width: 200px;
+   height: 40px;
+   background-color: white;
+   border: 1px solid black;
+   border-radius: 25px;
+   cursor: pointer;
+   font-size: 1.2rem;
+   font-weight: bold;
+
+   grid-row: 1;
+   grid-column: 3;
+   justify-self: flex-end;
+   align-self: center;
+}
+
+.table-header .delete-table-btn {
+   height: 40px;
+   background-color: var(--secondary);
+   border: 0px solid black;
+   cursor: pointer;
+   font-size: 1.4rem;
+   font-weight: bold;
+   color: #ff0033;
+
+   grid-row: 1;
+   grid-column: 4;
+   justify-self: flex-end;
+   align-self: center;
+   width: 40px;
+   height: 40px;
+}
+
+.table-header .edit-table-btn:hover {
+   background-color: var(--hover-btn);
+}
+
+.form {
+   width: 500px;
+   position: absolute;
+   background-color: white;
+   box-shadow: 0px 0px 2px 2px black;
+   padding: 80px 0px;
+   gap: 15px;
+   justify-self: center;
+   align-self: center;
+
+   display: none;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.form input[type="text"], .form input[type="password"] {
+   width: 80%;
+   height: 30px;
+   padding-left: 10px;
+}
+
+.form input[type="date"] {
+   width: 80%;
+   height: 30px;
+}
+
+.input-file {
+   width: 50%;
+   height: 40px;
+   border: 0.5px solid black;
+   cursor: pointer;
+   border-radius: 20px;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+}
+
+.form input[type="button"] {
+   height: 50px;
+   width: 80%;
+   margin-top: 20px;
+   border: 0px solid black;
+   border-radius: 25px;
+   background-color: var(--primary);
+   color: white;
+   font-size: 1.2rem;
+   font-weight: bolder;
+   cursor: pointer;
+}
+
+.form input[type="button"]:hover {
+   background-color: #fc9744;
+}
+
+.form .close {
+   font-size: 1.3rem;
+   width: 40px;
+   height: 40px;
+   border: 0px solid black;
+   border-radius: 20px;
+   position: absolute;
+   top: 30px;
+   right: 20px;
+   color: red;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.form .close:hover {
+   background-color: #eeeeee;
+   cursor: pointer;
+}
+
+#home-area {
+   width: 100%;
+   height: 100%;
+   background-color: white;
+}
+
+/* main breakpoint template */
+@media (max-width: 600px) {
+   body {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      background-color: var(--primary);
+   }
+   nav {
+      width: calc(100% - 20px);
+      height: calc(100% - 110px);
+      background-color: white;
+      border: 0px solid white;
+      border-radius: 20px;
+      display: none;
+      gap: 20px;
+   }
+   nav div {
+      box-shadow: black 0px 0px 1px 2px;
+      padding: 0px 100px;
+   }
+   header #mobile {
+      display: flex;
+      height: 100%;
+      align-items: center;
+   }
+   header #mobile svg {
+      margin-left: 10px;
+   }
+   header #mobile svg:hover {
+      cursor: pointer;
+   }
+   #main-area {
+      width: 100%;
+      height: calc(100% - 60px);
+   }
+   #admin-utils #search-bar input[type="text"] {
+      width: calc(100% - 50px);
+   }
+   .form {
+      width: 350px;
+   }
+   #table-area {
+      max-height: 600px;
+   }
+   .table-header .edit-table-btn {
+      width: 80%;
+      margin: 0;
+      justify-self: left;
+   }
+}
+
+@media (min-width: 601px) {
+   body {
+      display: grid;
+      grid-template-rows: 60px 1fr;
+      grid-template-columns: 200px 1fr;
+   }
+   header {
+      grid-row: 1;
+      grid-column: 1 / span 2;
+   }
+   header #normal {
+      display: flex;
+      width: 50%;
+      height: 100%;
+      align-items: center;
+      gap: 20px;
+   }
+   header #normal #logo {
+      border: 1px solid white;
+      border-radius: 0px 50% 50% 0px;
+      background-color: white;
+      padding: 0px 10px 0px 10px;
+   }
+   header #normal #home-icon:hover {
+      cursor: pointer; 
+   }
+   nav {
+      grid-row: 2;
+      background-color: var(--primary);
+      text-decoration: underline;
+   }
+   nav div {
+      padding: 0px 50px;
+   }
+   #main-area {
+      width: calc(100% - 10px);
+      height: calc(100% - 10px);
+      grid-row: 2;
+      grid-column: 2;
+      border-right: 10px solid var(--primary);
+      border-bottom: 10px solid var(--primary);
+   }
+}
+
+/* breakpoint template for admin admin-utils */
+@media (max-width: 1000px) {
+   #admin-utils {
+      grid-template-columns: 1fr 100px;
+   }
+
+   #admin-utils h1 {
+      display: none;
+   }
+
+   #admin-utils #search-bar {
+      grid-row: 1;
+      grid-column: 1;
+   }
+
+   #admin-utils #buttons {
+      grid-row: 1;
+      grid-column: 2;
+   }
+
+   #admin-utils #buttons button {
+      width: 80px;
+      margin: 0;
+   }
+}
+
+@media (min-width: 1001px) {
+   #admin-utils h1 {
+      grid-row: 1;
+      grid-column: 1;
+   }
+
+   #admin-utils #search-bar {
+      grid-row: 1;
+      grid-column: 2;
+   }
+
+   #admin-utils #buttons {
+      grid-row: 1;
+      grid-column: 3;
+   }
+}
