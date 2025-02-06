@@ -14,45 +14,47 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #ff7300;
+            background-color: #f4f4f4;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: white;
+            padding: 20px;
+            color: #333;
+            flex-direction: row;
         }
 
         .container {
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-            padding: 20px 30px;
-            width: 350px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px 40px;
+            width: 420px;
             text-align: center;
+            z-index: 2;
         }
 
         .tab {
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
-            cursor: pointer;
+            border-bottom: 2px solid #ddd;
         }
 
         .tab button {
             flex: 1;
-            padding: 10px;
+            padding: 12px;
             border: none;
-            background-color: #ff7300;
-            color: white;
+            background-color: transparent;
             font-size: 16px;
-            border-radius: 5px 5px 0 0;
-            transition: background-color 0.3s;
+            color: #555;
+            cursor: pointer;
+            transition: color 0.3s;
+            font-weight: bold;
         }
 
         .tab button.active {
-            background-color: white;
             color: #ff7300;
-            font-weight: bold;
             border-bottom: 3px solid #ff7300;
         }
 
@@ -84,20 +86,16 @@
             font-size: 14px;
         }
 
-        .form-group input:focus {
-            outline: none;
-            border-color: #ff7300;
-        }
-
         .btn {
             background-color: #ff7300;
             color: white;
             border: none;
             border-radius: 5px;
-            padding: 10px 15px;
+            padding: 12px;
             font-size: 16px;
             cursor: pointer;
             width: 100%;
+            transition: background 0.3s;
         }
 
         .btn:hover {
@@ -114,78 +112,121 @@
         .forgot-password:hover {
             text-decoration: underline;
         }
+
+        .content {
+            display: flex;
+            width: 90%;
+            max-width: 1000px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container img {
+            max-width: 100%;
+            max-height: 400px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .logo-container img {
+                max-width: 80%;
+                max-height: 250px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="tab">
-            <button class="tab-link active" onclick="showForm('login')">Iniciar Sesión</button>
-            <button class="tab-link" onclick="showForm('register')">Registrarse</button>
-        </div>
+    <div class="content">
+        <div class="container">
+            <div class="tab">
+                <button class="tab-link active" onclick="showForm('login')">Iniciar Sesión</button>
+                <button class="tab-link" onclick="showForm('register')">Registrarse</button>
+            </div>
 
-        <!-- Login Form -->
-        <div id="login" class="form-container active">
-            <h1>Iniciar Sesión</h1>
-            <form action="login.php" method="POST">
-                <div class="form-group">
-                    <label for="login-username">Usuario</label>
-                    <input type="text" id="login-username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="login-password">Contraseña</label>
-                    <input type="password" id="login-password" name="password" required>
-                </div>
-                <button type="submit" class="btn">Ingresar</button>
-            </form>
-            <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
-        </div>
+            <div id="login" class="form-container active">
+                <h2>Iniciar Sesión</h2>
+                <form action="login.php" method="POST">
+                    <div class="form-group">
+                        <label for="login-username">Usuario</label>
+                        <input type="text" id="login-username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Contraseña</label>
+                        <input type="password" id="login-password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn">Ingresar</button>
+                </form>
+                <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+            </div>
 
-        <!-- Register Form -->
-        <div id="register" class="form-container">
-            <h1>Registro</h1>
-            <form action="register.php" method="POST">
-                <div class="form-group">
-                    <label for="register-username">Usuario</label>
-                    <input type="text" id="register-username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-nombre">Nombre</label>
-                    <input type="text" id="register-nombre" name="nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-Apellido">Apellidos</label>
-                    <input type="text" id="register-apellido" name="apellido" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-email">Correo Electrónico</label>
-                    <input type="email" id="register-email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-telefono">Teléfono</label>
-                    <input type="text" id="register-Telefono" name="telefono" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-password">Contraseña</label>
-                    <input type="password" id="register-password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirm-password">Confirmar Contraseña</label>
-                    <input type="password" id="confirm-password" name="confirm_password" required>
-                </div>
-                <button type="submit" class="btn">Registrarse</button>
-            </form>
+            <div id="register" class="form-container">
+                <h2>Registro</h2>
+                <form action="register.php" method="POST">
+                    <div class="form-group">
+                        <label for="register-username">Usuario</label>
+                        <input type="text" id="register-username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-nombre">Nombre</label>
+                        <input type="text" id="register-nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-Apellido">Apellidos</label>
+                        <input type="text" id="register-apellido" name="apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Correo Electrónico</label>
+                        <input type="email" id="register-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-telefono">Teléfono</label>
+                        <input type="text" id="register-Telefono" name="telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Contraseña</label>
+                        <input type="password" id="register-password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirmar Contraseña</label>
+                        <input type="password" id="confirm-password" name="confirm_password" required>
+                    </div>
+                    <button type="submit" class="btn">Registrarse</button>
+                </form>
+            </div>
+        </div>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="img/Logo Vectorizado.png" alt="Logo">
+            </a>    
         </div>
     </div>
 
     <script>
         function showForm(formId) {
-            const forms = document.querySelectorAll('.form-container');
-            const buttons = document.querySelectorAll('.tab button');
-
-            forms.forEach(form => form.classList.remove('active'));
-            buttons.forEach(button => button.classList.remove('active'));
-
+            document.querySelectorAll('.form-container').forEach(form => form.classList.remove('active'));
+            document.querySelectorAll('.tab button').forEach(button => button.classList.remove('active'));
             document.getElementById(formId).classList.add('active');
             document.querySelector(`.tab button[onclick="showForm('${formId}')"]`).classList.add('active');
         }
