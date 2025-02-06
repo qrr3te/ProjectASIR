@@ -4,6 +4,13 @@ $mysqli_username = "asir";
 $mysqli_password = "ArchTheBest";
 $mysqli_database = "alamedamotors";
 
-$conn = new mysqli($mysqli_servername, $mysqli_username, $mysqli_password, $mysqli_database);
-$conn_root = new mysqli($mysqli_servername, "root", $mysqli_password, $mysqli_database);
+$conn = new mysqli($servername, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Error en la conexión: " . $conn->connect_error);
+}
+
+//echo "Conexión exitosa a la base de datos '$database'";
+
+//$conn->close();
 ?>
