@@ -25,7 +25,7 @@ CREATE TABLE coche (
    marca varchar(255),
    modelo varchar(255),
    precio decimal(10, 2),
-   imagen blob
+   imagen longblob
 );
 
 CREATE TABLE comprar (
