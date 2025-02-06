@@ -8,7 +8,7 @@ if ($conn->connect_error) {
 
 
 // Sacar la informacion de la imagen guardada en formato BLOB
-$ruta="img/impala.jpg";
+$ruta="img/corvette.jpg";
 $TamanioImagen=filesize($ruta);
 
 // la imagen q queramos subir debe estar en .jpg
@@ -25,10 +25,10 @@ fclose($LaImagen);
 //toma Blob niño
 
 // Datos del coche
-$matricula = "4321XAO";
-$marca = "Chevrolet";
-$modelo = "Impala";
-$precio = 280999.0;
+$matricula = "1312SEX";
+$marca = "Corvette";
+$modelo = "C1";
+$precio = 250999.0;
 
 // Preparar la consulta SQL para insertar los datos
 $stmt = $conn->prepare("INSERT INTO coche (matricula, marca, modelo, precio, imagen) VALUES (?, ?, ?, ?, ?)");

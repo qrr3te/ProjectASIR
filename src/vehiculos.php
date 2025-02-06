@@ -40,11 +40,12 @@ if (!$query) {
             while ($fila = $query->fetch_assoc()) {
                 echo '
                 <div class="card">
-                    <img src="'.$fila['imagen'].'" alt="'.$fila['marca'].' '.$fila['modelo'].'">
+                    
+                    <img src="data:image/jpeg;base64,' . base64_encode($fila['imagen']) . '" alt="Imagen de ' . $fila['marca'] . ' ' . $fila['modelo'] . '">
                     <div class="card-body">
                         <h2 class="card-title">'.$fila['marca'].' '.$fila['modelo'].'</h2>
                         <p>Precio: '.$fila['precio'].' €</p>
-                        <a href="#" class="btn btn-outline">Descubre Más</a>
+                        <a href="#" class="btn btn-outline">Comprar</a>
                         <a href="#" class="btn btn-highlight">Solicita tu Oferta</a>
                     </div>
                 </div>
