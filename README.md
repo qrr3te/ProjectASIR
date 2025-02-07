@@ -49,8 +49,9 @@ Se puede trabajar directamente en la rama main si:
 - [ ] vehículos - **Branched**
 - [x] Servicios
 - [x] Login/Registro cliente
+- [ ] Sesiones y middleware de login
 - [ ] Mostrar citas del cliente
-- [ ] Mostrar carburantes - **Branched**   
+- [ ] Mostrar carburantes - **Branched** 
 
 ### Administrador
 - [x] Login
@@ -64,6 +65,8 @@ Se puede trabajar directamente en la rama main si:
     git clone https://github.com/tu-usuario/ProjectASIR.git
     cd ProjectASIR
     ```
-2. Es necesario instalar php localmente para correr el script de instalación
-2. `./setup.sh`
+2. Instalar docker-compose o docker desktop
+3. Despliegue del proyecto
+   + **Linux**: `./setup.sh`
+   + **Windows**: `./setup.exe`,
 

@@ -1,2 +1,4 @@
 /vendor/
 /composer.json
+/webot/target
+/setup/target
