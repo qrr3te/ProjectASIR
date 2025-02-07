@@ -1,4 +1,3 @@
-version: '3.9'
 services:
   # PHP-FPM Service
   php-fpm:
@@ -8,6 +7,8 @@ services:
     volumes:
     # Mounts the local 'src' directory to the container's Nginx root
       - ./src:/var/www/html
+    networks:
+      backend_network:
     depends_on:
     # Depends on the MySQL database service
       - mysql-db
@@ -20,6 +21,9 @@ services:
     volumes:
     # Mountlocal 'src' directory to the Nginx root
       - ./src:/var/www/html
+    networks:
+      backend_network:
+        ipv4_address: 172.20.0.10
     ports:
       - "8000:80"
     depends_on:
@@ -33,6 +37,19 @@ services:
       MYSQL_DATABASE: alamedamotors
       MYSQL_USER: asir
       MYSQL_PASSWORD: ArchTheBest
-    ports:
-    # Maps port 3306 on the host to port 3306 on the MySQL container
-      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      backend_network:
+        ipv4_address: 172.20.0.11
+
+networks:
+  backend_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1
+
+volumes:
+  mariadb_data:

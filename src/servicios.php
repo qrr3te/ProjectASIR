@@ -43,13 +43,6 @@
             </div>
         </div>
     </div>
-    <div class="footer">
-        <p>Copyright © 2024. Todos los derechos reservados.</p>
-        <div class="contact-info">
-            <p>Teléfonos: XXX XXX XXX | XXX XXX XXX</p>
-            <p>Email: <a href="mailto:">correo@alamaedamotors.com</a> / <a href="mailto:">correo2@alamedamotors.com</a></p>
-            <p>Dirección:  C. Flauta Mágica, 32, Cruz de Humilladero, 29006 Málaga</p>
-        </div>
-    </div>
+    <?php include("includes/footer.php"); ?>
 </body>
 </html>

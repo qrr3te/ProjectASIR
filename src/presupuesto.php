@@ -176,32 +176,8 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="bottom-bar">
-            <div class="contact-info">
-                <span>Lun - Vie: 09:00am a 06:00pm</span>
-                <span> | </span>
-                <span>+34 123456789</span>
-                <span> | </span>
-                <span>support@alamedamotor.com</span>
-            </div>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2024 Alameda Motor. Todos los derechos reservados.</p>
-        </div>
-        <div class="legal-links">
-            <a href="/terminos-y-condiciones.html">Términos y Condiciones</a>
-            <span>|</span>
-            <a href="/politicas-de-privacidad.html">Políticas de Privacidad</a>
-        </div>
-    </footer>
+    <?php include("includes/footer.php"); ?>
+       
 </body>
 
 </html>

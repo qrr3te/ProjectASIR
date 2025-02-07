@@ -17,7 +17,7 @@
     <div class="hero-image">
     </div>
     <main>
-        <section class="about-us">
+        <section class="Liderazgo">
             <div class="container">
                 <h2>Conócenos</h2>
                 <p>
@@ -69,33 +69,13 @@
                 </div>
                 <div class="images">
                     <img src="img/talleres-munuera.jpg" alt="Camión cisterna Dinergia">
-                    <img src="img/dinergia_adisabes1.jpg" alt="Flota de camiones Dinergia">
+                    
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="bottom-bar">
-            <div class="contact-info">
-                <span>Lun - Vie: 09:00am a 06:00pm</span>
-                <span> | </span>
-                <span>+34 123456789</span>
-                <span> | </span>
-                <span>support@alamedaindustrial.com</span>
-            </div>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2024 Alameda Industrial. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+   <?php include("includes/footer.php"); ?>
 </body>
 
 </html>
