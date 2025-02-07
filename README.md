@@ -43,18 +43,21 @@ Se puede trabajar directamente en la rama main si:
 
 ### Cliente
 - [x] Portada de la web
-- [x] Formulario de presupuesto
+- [ ] Formulario de presupuesto **Branched**
 - [x] Conocenos
 - [ ] Formulario de contacto - **Branched**
 - [ ] vehículos - **Branched**
-- [ ] Servicios - **Branched**
+- [x] Servicios
 - [x] Login/Registro cliente
+- [ ] Sesiones y middleware de login
 - [ ] Mostrar citas del cliente
-- [ ] Mostrar carburantes   
+- [ ] Mostrar carburantes - **Branched** 
 
 ### Administrador
-- [ ] Login - **branched**
-- [ ] Abstracción de la base de datos (CRUD) - **Branched**
+- [x] Login
+- [x] Abstracción de la base de datos (CRUD)
+- [ ] Validación de datos y manejo de errores
+- [ ] Estadisticas del servidor como página principal 
 
 ## Setup del proyecto:
 1. Clona el repositorio:
@@ -62,8 +65,8 @@ Se puede trabajar directamente en la rama main si:
     git clone https://github.com/tu-usuario/ProjectASIR.git
     cd ProjectASIR
     ```
-2. `docker-compose up -d`
-3. `mariadb -h 127.0.0.1 -u asir -p`
-4. Insertar contraseña: ArchTheBest
-5. `source alamedamotors.sql`
+2. Instalar docker-compose o docker desktop
+3. Despliegue del proyecto
+   + **Linux**: `./setup.sh`
+   + **Windows**: `./setup.exe`,
 
