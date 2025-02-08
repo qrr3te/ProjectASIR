@@ -1,0 +1,57 @@
+services:
+  # PHP-FPM Service
+  php-fpm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+    # Mounts the local 'src' directory to the container's Nginx root
+      - ./src:/var/www/html
+    networks:
+      backend_network:
+    depends_on:
+    # Depends on the MySQL database service
+      - mysql-db
+
+  # NGINX Service
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    volumes:
+    # Mountlocal 'src' directory to the Nginx root
+      - ./src:/var/www/html
+    networks:
+      backend_network:
+        ipv4_address: 172.20.0.10
+    ports:
+      - "8000:80"
+    depends_on:
+      - php-fpm  # Depends on the PHP-FPM service
+      - mysql-db  # Depends on the MySQL database service
+ # MySQL Database Service
+  mysql-db:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: ArchTheBest
+      MYSQL_DATABASE: alamedamotors
+      MYSQL_USER: asir
+      MYSQL_PASSWORD: ArchTheBest
+    ports:
+      - 3306:3306
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      backend_network:
+        ipv4_address: 172.20.0.11
+
+networks:
+  backend_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1
+
+volumes:
+  mariadb_data:

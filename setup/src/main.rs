@@ -13,7 +13,10 @@ struct  MysqlConfig {
 impl MysqlConfig {
     fn default() -> Self {
         Self { 
+            #[cfg(target_os = "linux")]
             host: Some("172.20.0.11".to_owned()),
+            #[cfg(target_os = "windows")]
+            host: Some("127.0.0.1".to_owned()),
             username: Some("root".to_owned()),
             password: Some("ArchTheBest".to_owned()),
             database: Some("alamedamotors".to_owned())
@@ -158,7 +161,8 @@ fn docker_restart() {
         .arg("down")
         .output()
         .expect("docker-compose error: no ha podido ejecutarse asegurate de tenerlo instalado");
-    
+
+    #[cfg(target_os = "linux")]
     Command::new("docker-compose")
         .stdout(Stdio::inherit())
         .stderr(Stdio::inherit())
@@ -166,6 +170,17 @@ fn docker_restart() {
         .arg("-d")
         .output()
         .expect("docker-compose error: asegurate de estar en la misma ruta que docker-compose.yml");
+    
+    #[cfg(target_os = "windows")]
+    Command::new("docker-compose")
+        .stdout(Stdio::inherit())
+        .stderr(Stdio::inherit())
+        .arg("-f")
+        .arg("docker-compose-win.yml")
+        .arg("up")
+        .arg("-d")
+        .output()
+        .expect("docker-compose error: asegurate de estar en la misma ruta que docker-compose-win.yml");
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
