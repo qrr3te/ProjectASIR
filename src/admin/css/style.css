@@ -1,5 +1,5 @@
 :root {
-   --primary: #ff7300;
+   --primary: #FF9900;
    --secondary: #2a3eb1;
    --hover-btn: rgba(255, 255, 255, 0.80);
 }
@@ -62,8 +62,14 @@ nav div{
    font-family: Verdana;
 }
 
-nav div:first-child {
-   margin-top: 50px;
+nav h1 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 60px;
+   width: 100%;
+   border-bottom: 1px solid white;
+   margin-bottom: 10px;
 }
 
 nav div:hover {
@@ -73,11 +79,13 @@ nav div:hover {
 }
 
 #main-area {
-   background-color: white;
    display: grid;
-   max-height: calc(100vh - 60px - 10px);
+   max-height: calc(100vh - 60px);
    grid-template-rows: 200px 1fr 25px;
    grid-template-columns: 1fr;
+   background-color: #b8c6db;
+   background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+
 }
 
 #admin-utils {
@@ -86,7 +94,7 @@ nav div:hover {
    max-width: 1500px;
    background-color: var(--secondary);
    border: 5px solid var(--secondary);
-   border-radius: 50px;
+   border-radius: 20px;
    grid-row: 1;
    align-self: center;
    justify-self: center;
@@ -148,7 +156,7 @@ nav div:hover {
    width: 80%;
    max-width: 1500px;
    overflow-y: scroll;
-   background-color: #F6F6F6;
+   background-color: #FFFFFF;
    border-radius: 25px;
    grid-row: 2;
    align-self: center;
@@ -336,14 +344,17 @@ nav div:hover {
    nav {
       width: calc(100% - 20px);
       height: calc(100% - 110px);
-      background-color: white;
       border: 0px solid white;
+      color: white;
       border-radius: 20px;
       display: none;
       gap: 20px;
    }
    nav div {
-      box-shadow: black 0px 0px 1px 2px;
+      background-color: var(--secondary);
+      box-shadow: white 0px 0px 1px 2px;
+      border: 0px solid black;
+      border-radius: 15px;
       padding: 0px 100px;
    }
    header #mobile {
@@ -385,7 +396,7 @@ nav div:hover {
    }
    header {
       grid-row: 1;
-      grid-column: 1 / span 2;
+      grid-column: 2;
    }
    header #normal {
       display: flex;
@@ -394,30 +405,27 @@ nav div:hover {
       align-items: center;
       gap: 20px;
    }
-   header #normal #logo {
-      border: 1px solid white;
-      border-radius: 0px 50% 50% 0px;
-      background-color: white;
-      padding: 0px 10px 0px 10px;
+   header #normal #home-icon {
+      margin-left: 15px; 
    }
    header #normal #home-icon:hover {
       cursor: pointer; 
    }
    nav {
-      grid-row: 2;
+      grid-row: 1 / span 2;
       background-color: var(--primary);
-      text-decoration: underline;
+      color: white;
    }
    nav div {
+      font-size: 1.2rem;
+      font-weight: 500;
       padding: 0px 50px;
    }
    #main-area {
-      width: calc(100% - 10px);
-      height: calc(100% - 10px);
+      width: 100%;
+      height: 100%;
       grid-row: 2;
       grid-column: 2;
-      border-right: 10px solid var(--primary);
-      border-bottom: 10px solid var(--primary);
    }
 }
 

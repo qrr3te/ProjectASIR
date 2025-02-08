@@ -28,7 +28,6 @@ $table_array = get_tables_array();
             <svg id="menu-icon" width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.096"></g><g id="SVGRepo_iconCarrier"> <path d="M4 18L20 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path> <path d="M4 12L20 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path> <path d="M4 6L20 6" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path> </g></svg>
          </div>
          <div id="normal">
-            <img width="100px" src="../img/Logo Vectorizado.png" id="logo">
             <svg id="home-icon" width="32px" height="32px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0L0 6V8H1V15H4V10H7V15H15V8H16V6L14 4.5V1H11V2.25L8 0ZM9 10H12V13H9V10Z" fill="#ffffff"></path> </g></svg>
          </div>
          <div id="user">
@@ -38,6 +37,7 @@ $table_array = get_tables_array();
       </header> 
 
       <nav>
+         <h1>Tablas</h1>
          <?php foreach($table_array as $table): ?>
          <div id="nav-<?= $table ?>" table="<?= $table ?>"><?=$table ?></div> 
          <?php endforeach; ?>
