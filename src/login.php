@@ -26,7 +26,7 @@ $password = "";
 $stmt->bind_result($username, $password);
 $stmt->execute();
 $stmt->fetch();
-$conn->close();
+$stmt->reset();
 
 if ($username == "") {
    die();
@@ -37,8 +37,20 @@ if ($username == "") {
 // die();
 
 if ( password_verify($post_password, $password)) {
-   echo "sesión iniciada como $username";
+   session_start();
+   $email = "";
+   $stmt = $conn->prepare("SELECT email FROM cliente WHERE username = ?");
+   $stmt->bind_param("s", $post_username);
+   $stmt->bind_result($email);
+   $stmt->execute();
+   $stmt->fetch();
+
+   $_SESSION["username"] = $username;
+   $_SESSION["email"] = $email;
+   $_SESSION["logged_in"] = true;
+   header("Location:index.html");
 } else {
    echo "inicio de sesión fallido";
 }
+$conn->close();
 ?>

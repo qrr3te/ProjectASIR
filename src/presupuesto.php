@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+
     <style>
         /* Estilos comunes */
         body,
@@ -149,34 +150,34 @@
                 <label for="services">Servicios Solicitados:</label>
                 <div id="services" class="services-checkboxes">
                     <label>
-                        <input type="checkbox" name="services[]" value="oil_change"> Cambio de aceite
+                        <input type="checkbox" name="services[]" value="Cambio_Aceite"> Cambio de aceite
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="tire_change"> Cambio de neumáticos
+                        <input type="checkbox" name="services[]" value="Cambio_Neumaticos"> Cambio de neumáticos
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="battery_check"> Revisión de batería
+                        <input type="checkbox" name="services[]" value="Revisión_Batería"> Revisión de batería
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="brakes_check"> Revisión de frenos
+                        <input type="checkbox" name="services[]" value="Frenos"> Revisión de frenos
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="engine_diagnostics"> Diagnóstico del motor
+                        <input type="checkbox" name="services[]" value="Diagnóstico_Motor"> Diagnóstico del motor
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="general_service"> Mantenimiento general
+                        <input type="checkbox" name="services[]" value="Mantenimiento_General"> Mantenimiento general
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="ac_repair"> Reparación de aire acondicionado
+                        <input type="checkbox" name="services[]" value="Aire_Acondicionado"> Reparación de aire acondicionado
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="wheel_alignment"> Alineación de ruedas
+                        <input type="checkbox" name="services[]" value="Alineación_Ruedas"> Alineación de ruedas
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="suspension_check"> Revisión de suspensión
+                        <input type="checkbox" name="services[]" value="Revisión_Suspensión"> Revisión de suspensión
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="transmission_service"> Servicio de transmisión
+                        <input type="checkbox" name="services[]" value="Trasnmisión"> Servicio de transmisión
                     </label>
                 </div>
 
