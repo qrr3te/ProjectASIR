@@ -102,6 +102,19 @@
             padding: 20px 0;
         }
     </style>
+     <script>
+        function cargarHorasDisponibles() {
+            var fecha = document.getElementById("date").value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "obtener_horas.php?fecha=" + fecha, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("time").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+    </script>
 </head>
 
 <body>
@@ -110,7 +123,7 @@
         <section class="form-section">
             <h2>Solicitar Presupuesto</h2>
             <p>Por favor, complete el siguiente formulario para agendar su cita.</p>
-            <form class="appointment-form">
+            <form action="insert-cita.php" method="POST" class="appointment-form">
 
                 <label for="marca">Marca del vehículo</label>
                 <input type="text" id="name" name="name" placeholder="Ej. BMW" required>
@@ -124,12 +137,14 @@
                     required>
 
                 <!-- Fecha y hora preferida -->
-                <label for="date">Fecha Preferida:</label>
-                <input type="date" id="date" name="date" required>
+                <label for="date">Fecha:</label>
+                <input type="date" id="date" name="date" required onchange="cargarHorasDisponibles()">
 
-                <label for="time">Hora Preferida:</label>
-                <input type="time" id="time" name="time" required>
-
+                <label for="time">Hora:</label>
+                <select id="time" name="time" required>
+                    <option value="">Seleccione una fecha primero</option>
+                </select>
+                <br>
                 <!-- Servicios solicitados -->
                 <label for="services">Servicios Solicitados:</label>
                 <div id="services" class="services-checkboxes">
