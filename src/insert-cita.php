@@ -56,9 +56,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Insertar la cita en la base de datos
-    $sql = "INSERT INTO cita (marca, modelo, fecha, hora, servicio_solicitado, cliente_id) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO cita (marca, modelo, fecha, hora, servicio_solicitado, cliente_id, comentarios) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssi", $marca, $modelo, $fecha, $hora, $servicio, $cliente_id);
+    $stmt->bind_param("sssssis", $marca, $modelo, $fecha, $hora, $servicio, $cliente_id, $comentarios);
 
     if ($stmt->execute()) {
         // Enviar correo con PHPMailer
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'fjavierlopezpuertas@gmail.com';  
-            $mail->Password   = 'bkvg yiki hjts eykh ';  
+            $mail->Password   = 'niap nujo wcth hmjx ';  
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
             $mail->Port       = 587;
 
@@ -102,20 +102,80 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </html>
             ";
 
-            // Enviar el correo
-            if ($mail->send()) {
-                echo "<script>alert('Cita registrada exitosamente. Se ha enviado un correo con los detalles.'); window.location.href='presupuesto.php';</script>";
-            } else {
-                echo "<script>alert('Cita registrada, pero hubo un error al enviar el correo.'); window.history.back();</script>";
-            }
-        } catch (Exception $e) {
-            echo "<script>alert('Error al enviar el correo: {$mail->ErrorInfo}'); window.history.back();</script>";
-        }
-    } else {
-        echo "<script>alert('Error al registrar la cita: " . $stmt->error . "'); window.history.back();</script>";
-    }
+           // Enviar el correo
+if ($mail->send()) {
+    echo <<<HTML
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Cita registrada exitosamente',
+            text: 'Hemos enviado un correo electrónico con los detalles de tu cita',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#3085d6',
+        }).then((result) => {
+            window.location.href = 'presupuesto.php';
+        });
+    });
+    </script>
+HTML;
+} else {
+    echo <<<HTML
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Cita registrada',
+            text: 'La cita se guardó correctamente pero no pudimos enviar el correo de confirmación. Por favor contacta con nuestro equipo',
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: '#3085d6',
+        }).then((result) => {
+            window.history.back();
+        });
+    });
+    </script>
+HTML;
+}
+} catch (Exception $e) {
+    echo <<<HTML
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error de comunicación',
+            html: 'Ocurrió un error al enviar la confirmación:<br><small>{$mail->ErrorInfo}</small>',
+            confirmButtonText: 'Reintentar',
+            confirmButtonColor: '#d33',
+        }).then((result) => {
+            window.history.back();
+        });
+    });
+    </script>
+HTML;
+}
+} else {
+    echo <<<HTML
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error en el registro',
+            html: 'No pudimos registrar tu cita:<br><small>{$stmt->error}</small>',
+            confirmButtonText: 'Reintentar',
+            confirmButtonColor: '#d33',
+        }).then((result) => {
+            window.history.back();
+        });
+    });
+    </script>
+HTML;
+}
 
-    $stmt->close();
+$stmt->close();
 }
 
 $conn->close();

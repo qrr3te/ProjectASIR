@@ -1,3 +1,4 @@
+<?php include("includes/session_start.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -122,7 +123,7 @@
     <?php include("includes/header.php"); ?>
     <main>
         <section class="form-section">
-            <h2>Solicitar Presupuesto</h2>
+            <h2>Solicitar Cita</h2>
             <p>Por favor, complete el siguiente formulario para agendar su cita.</p>
             <form action="insert-cita.php" method="POST" class="appointment-form">
 

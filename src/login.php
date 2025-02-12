@@ -32,9 +32,6 @@ if ($username == "") {
    die();
 }
 
-// debug 
-// echo $username . " - " . $password . " - " . $post_password;
-// die();
 
 if ( password_verify($post_password, $password)) {
    session_start();
@@ -48,7 +45,8 @@ if ( password_verify($post_password, $password)) {
    $_SESSION["username"] = $username;
    $_SESSION["email"] = $email;
    $_SESSION["logged_in"] = true;
-   header("Location:index.html");
+   header("Location:index.php");
+   exit();
 } else {
    echo "inicio de sesión fallido";
 }

@@ -20,11 +20,15 @@
 
 <!-- Template Stylesheet -->
 <link href="css/style.css" rel="stylesheet">
- 
+
+
+<!-- Sweet Alert 2 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <img src="img/Logo Vectorizado.png" alt="AlamedaMotors Logo" class="brand-logo" style="height: 40px;">
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -32,7 +36,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                <a href="index.php" class="nav-item nav-link active">Inicio</a>
                 <a href="presupuesto.php" class="nav-item nav-link">Cita Previa</a>
                 <a href="vehiculos.php" class="nav-item nav-link">Vehículos</a>
                 <a href="conocenos.php" class="nav-item nav-link">Nosotros</a>
@@ -43,23 +47,22 @@
             </div>
             <!-- Iconos adicionales -->
             <div class="d-flex align-items-center me-4">
-                <!-- Icono de usuario -->
-                <a href="login.html" class="nav-link">
-                    <i class="fa fa-user text-primary fa-lg"></i>
-                </a>
+                <?php if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true): ?>
+                    <a href="perfil.php" class="text-secondary nav-link">
+                        <i class="fa fa-user text-primary fa-lg"></i>
+                        <span class="ms-1"><?php echo htmlspecialchars($_SESSION["username"]); ?></span>
+                    </a>
+                <?php else: ?>
+                    <a href="login.html" class="nav-link">
+                        <i class="fa fa-user text-primary fa-lg"></i>
+                    </a>
+                <?php endif; ?>
 
-                <!-- Icono de carrito -->
-                <a href="carrito.html" class="nav-link position-relative">
-                    <i class="fa fa-shopping-cart text-primary fa-lg"></i>
-                    <span
-                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
-                    <!-- Número de artículos en el carrito -->
-                </a>
             </div>
 
             <!-- Botón de contacto -->
-            <a href="contact.html" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Contacta<i
-                    class="fa fa-arrow-right ms-3"></i></a>
+            <a href="https://wa.me/633487862?text=hola" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">WhatsApp<i
+            class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
