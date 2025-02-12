@@ -1,3 +1,4 @@
+<?php include("includes/session_start.php");?>
 <!DOCTYPE html>
 <html lang="es">
  
@@ -37,7 +38,7 @@ if (!$query) {
         while ($fila = $query->fetch_assoc()) {
             echo '
             <div class="card">
-                <img src="data:image/jpeg;base64,' . base64_encode($fila['imagen']) . '" 
+                <img src="data:image/jpeg;base64,' . $fila['imagen'] . '" 
                      alt="Imagen de ' . $fila['nombre'] . '" />
                 <div class="card-body">
                     <h2 class="card-title">' . $fila['nombre'] . '</h2>
