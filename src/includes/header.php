@@ -45,20 +45,29 @@
                 </div>
                 <a href="contact.html" class="nav-item nav-link">Contacto</a>
             </div>
-            <!-- Iconos adicionales -->
-            <div class="d-flex align-items-center me-4">
-                <?php if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true): ?>
-                    <a href="perfil.php" class="text-secondary nav-link">
-                        <i class="fa fa-user text-primary fa-lg"></i>
-                        <span class="ms-1"><?php echo htmlspecialchars($_SESSION["username"]); ?></span>
-                    </a>
-                <?php else: ?>
-                    <a href="login.html" class="nav-link">
-                        <i class="fa fa-user text-primary fa-lg"></i>
-                    </a>
-                <?php endif; ?>
+   <!-- Iconos adicionales -->
+<div class="d-flex align-items-center me-4">
+    <?php if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true): ?>
+        <!-- Contenedor para alternar entre icono y botón -->
+        <div id="user-container">
+            <a href="#" id="user-icon" class="text-secondary nav-link">
+                <i class="fa fa-user text-primary fa-lg"></i>
+                <span class="ms-1"><?php echo htmlspecialchars($_SESSION["username"]); ?></span>
+            </a>
+            <form id="logout-form" action="logout.php" method="POST" class="d-none">
+                <button type="submit" class="btn btn-danger btn-sm d-flex align-items-center" style="height: 38px;">
+                    <i class="fa fa-sign-out-alt text-white"></i>
+                    <span class="ms-1">Salir</span>
+                </button>
+            </form>
+        </div>
+    <?php else: ?>
+        <a href="login.html" class="nav-link">
+            <i class="fa fa-user text-primary fa-lg"></i>
+        </a>
+    <?php endif; ?>
+</div>
 
-            </div>
 
             <!-- Botón de contacto -->
             <a href="https://wa.me/633487862?text=hola" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">WhatsApp<i
@@ -80,3 +89,17 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+    const userIcon = document.getElementById("user-icon");
+    const logoutForm = document.getElementById("logout-form");
+
+    if (userIcon && logoutForm) {
+        userIcon.addEventListener("click", function (event) {
+            event.preventDefault();
+            userIcon.classList.add("d-none"); // Ocultar el icono
+            logoutForm.classList.remove("d-none"); // Mostrar el botón de salir
+        });
+    }
+});
+    </script>
