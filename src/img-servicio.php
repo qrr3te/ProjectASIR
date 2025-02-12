@@ -8,7 +8,7 @@ if ($conn->connect_error) {
 
 
 // Sacar la informacion de la imagen guardada en formato BLOB
-$ruta="img/Venta-Vehiculo.jpg";
+$ruta="img/dinergia_adisabes1.jpg";
 $TamanioImagen=filesize($ruta);
 
 // la imagen q queramos subir debe estar en .jpg
@@ -25,9 +25,9 @@ fclose($LaImagen);
 //toma Blob niño
 
 // Datos de la imagen
-$id = "4";
-$nombre = "Venta de Vehiculos";
-$descripcion = "Le entregamos el coche en su domicilio personalmente o mediante agencia, usted elige.";
+$id = "2";
+$nombre = "Venta de Carburantes";
+$descripcion = "Los mejores carburantes de la zona, disfruta de los mejores precios en manos de los moejores profesionales";
 
 
 // Preparar la consulta SQL para insertar los datos
