@@ -105,7 +105,9 @@ fn init_db(conn: &mut Conn) -> Result<(), Box<dyn Error>> {
             marca varchar(255),
             modelo varchar(255),
             fecha date,
+            hora TIME NOT NULL,
             servicio_solicitado varchar(255),
+            comentarios varchar(255),
             cliente_id int,
             FOREIGN KEY (cliente_id) REFERENCES cliente(id)
         )"
