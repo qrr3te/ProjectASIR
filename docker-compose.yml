@@ -21,6 +21,7 @@ services:
     volumes:
     # Mountlocal 'src' directory to the Nginx root
       - ./src:/var/www/html
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
     networks:
       backend_network:
         ipv4_address: 172.20.0.10
