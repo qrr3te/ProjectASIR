@@ -1,3 +1,4 @@
+<?php include("includes/session_start.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
     <style>
         /* Estilos comunes */
@@ -102,15 +104,28 @@
             padding: 20px 0;
         }
     </style>
+     <script>
+        function cargarHorasDisponibles() {
+            var fecha = document.getElementById("date").value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "obtener_horas.php?fecha=" + fecha, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("time").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+    </script>
 </head>
 
 <body>
     <?php include("includes/header.php"); ?>
     <main>
         <section class="form-section">
-            <h2>Solicitar Presupuesto</h2>
+            <h2>Solicitar Cita</h2>
             <p>Por favor, complete el siguiente formulario para agendar su cita.</p>
-            <form class="appointment-form">
+            <form action="insert-cita.php" method="POST" class="appointment-form">
 
                 <label for="marca">Marca del vehículo</label>
                 <input type="text" id="name" name="name" placeholder="Ej. BMW" required>
@@ -124,44 +139,46 @@
                     required>
 
                 <!-- Fecha y hora preferida -->
-                <label for="date">Fecha Preferida:</label>
-                <input type="date" id="date" name="date" required>
+                <label for="date">Fecha:</label>
+                <input type="date" id="date" name="date" required onchange="cargarHorasDisponibles()">
 
-                <label for="time">Hora Preferida:</label>
-                <input type="time" id="time" name="time" required>
-
+                <label for="time">Hora:</label>
+                <select id="time" name="time" required>
+                    <option value="">Seleccione una fecha primero</option>
+                </select>
+                <br>
                 <!-- Servicios solicitados -->
                 <label for="services">Servicios Solicitados:</label>
                 <div id="services" class="services-checkboxes">
                     <label>
-                        <input type="checkbox" name="services[]" value="oil_change"> Cambio de aceite
+                        <input type="checkbox" name="services[]" value="Cambio_Aceite"> Cambio de aceite
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="tire_change"> Cambio de neumáticos
+                        <input type="checkbox" name="services[]" value="Cambio_Neumaticos"> Cambio de neumáticos
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="battery_check"> Revisión de batería
+                        <input type="checkbox" name="services[]" value="Revisión_Batería"> Revisión de batería
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="brakes_check"> Revisión de frenos
+                        <input type="checkbox" name="services[]" value="Frenos"> Revisión de frenos
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="engine_diagnostics"> Diagnóstico del motor
+                        <input type="checkbox" name="services[]" value="Diagnóstico_Motor"> Diagnóstico del motor
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="general_service"> Mantenimiento general
+                        <input type="checkbox" name="services[]" value="Mantenimiento_General"> Mantenimiento general
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="ac_repair"> Reparación de aire acondicionado
+                        <input type="checkbox" name="services[]" value="Aire_Acondicionado"> Reparación de aire acondicionado
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="wheel_alignment"> Alineación de ruedas
+                        <input type="checkbox" name="services[]" value="Alineación_Ruedas"> Alineación de ruedas
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="suspension_check"> Revisión de suspensión
+                        <input type="checkbox" name="services[]" value="Revisión_Suspensión"> Revisión de suspensión
                     </label>
                     <label>
-                        <input type="checkbox" name="services[]" value="transmission_service"> Servicio de transmisión
+                        <input type="checkbox" name="services[]" value="Trasnmisión"> Servicio de transmisión
                     </label>
                 </div>
 
