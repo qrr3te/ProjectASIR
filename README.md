@@ -45,9 +45,9 @@ Se puede trabajar directamente en la rama main si:
 - [x] Portada de la web
 - [ ] Formulario de presupuesto **Branched**
 - [x] Conocenos
-- [ ] Formulario de contacto - **Branched**
+- [x] Formulario de contacto - **Branched**
 - [ ] vehículos - **Branched**
-- [x] Servicios
+- [ ] Servicios - **Branched**
 - [x] Login/Registro cliente
 - [ ] Sesiones y middleware de login
 - [ ] Mostrar citas del cliente
