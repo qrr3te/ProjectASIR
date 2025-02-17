@@ -10,7 +10,6 @@ La estructura del proyecto incluye los siguientes componentes principales:
 
 - **Frontend:**  
   Construido con [HTML5](https://developer.mozilla.org/es/docs/Web/HTML), [CSS3](https://developer.mozilla.org/es/docs/Web/CSS), y [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript).  
-  Herramientas: [Tailwind CSS](https://tailwindcss.com/) para estilos rápidos y responsivos.
 
 - **Backend:**  
   Implementado con [PHP](https://www.php.net/) para la lógica del servidor.  
@@ -18,6 +17,10 @@ La estructura del proyecto incluye los siguientes componentes principales:
 
 - **DevOps:**  
   Infraestructura configurada usando [Docker](https://www.docker.com/) para la creación de contenedores que facilitan el despliegue y la gestión del entorno de desarrollo y producción.
+
+- **Estadisticas y automatización:**
+  Se ha creado un listenner que usa rust y c para obtener datos en tiempo real del servidor el socket esta definido como 172.20.0.1:14500.
+  Automatización de setup: Se ha usado rust para inicializar el proyecto de forma automática.
 
 ## Normas de desarrollo
 
@@ -43,21 +46,20 @@ Se puede trabajar directamente en la rama main si:
 
 ### Cliente
 - [x] Portada de la web
-- [ ] Formulario de presupuesto **Branched**
+- [x] Formulario de presupuesto
 - [x] Conocenos
-- [x] Formulario de contacto - **Branched**
-- [ ] vehículos - **Branched**
+- [x] Formulario de contacto
+- [x] vehículos
 - [ ] Servicios - **Branched**
 - [x] Login/Registro cliente
-- [ ] Sesiones y middleware de login
+- [x] Sesiones y middleware de login
 - [ ] Mostrar citas del cliente
 - [ ] Mostrar carburantes - **Branched** 
 
 ### Administrador
 - [x] Login
 - [x] Abstracción de la base de datos (CRUD)
-- [ ] Validación de datos y manejo de errores
-- [ ] Estadisticas del servidor como página principal 
+- [x] Estadisticas del servidor como página principal 
 
 ## Setup del proyecto:
 1. Clona el repositorio:
