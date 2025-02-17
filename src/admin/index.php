@@ -46,16 +46,16 @@ $table_array = get_tables_array();
 
       <div id="home-area">
          <div>
-            <canvas id="myChart"></canvas>
+            <canvas id="http-chart"></canvas>
          </div>
          <div>
-           <canvas id="myChart"></canvas>
+           <canvas id="database-chart"></canvas>
          </div>
          <div>
-           <canvas id="myChart"></canvas>
+           <canvas id="disk-chart"></canvas>
          </div>
          <div>
-           <canvas id="myChart"></canvas>
+           <canvas id="memory-chart"></canvas>
          </div>
       </div>
 

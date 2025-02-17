@@ -63,9 +63,15 @@ function request_delete(id) {
         return yield response.json();
     });
 }
-function request_stats() {
+function request_server_stats() {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch("/admin/ajax/stats.php");
+        const response = yield fetch("/admin/ajax/server_stats.php");
+        return yield response.json();
+    });
+}
+function request_http_stats() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch("/admin/ajax/http_stats.php");
         return yield response.json();
     });
 }

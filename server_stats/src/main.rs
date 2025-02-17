@@ -124,7 +124,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     for stream in listener.incoming() {
         let mut stream = stream?;
         let server_stats = get_server_stats()?;
-        stream.write(&server_stats.into_bytes())?;
+        stream.write(&server_stats.into_bytes()).unwrap();
     }
     Ok(())
 }

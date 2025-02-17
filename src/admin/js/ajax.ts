@@ -47,7 +47,12 @@ async function request_delete(id: String): Promise<any> {
    return await response.json();
 }
 
-async function request_stats(): Promise<any> {
-   const response:Response = await fetch("/admin/ajax/stats.php");
+async function request_server_stats(): Promise<any> {
+   const response:Response = await fetch("/admin/ajax/server_stats.php");
+   return await response.json();
+}
+
+async function request_http_stats(): Promise<any> {
+   const response:Response = await fetch("/admin/ajax/http_stats.php");
    return await response.json();
 }
