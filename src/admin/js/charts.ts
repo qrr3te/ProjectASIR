@@ -93,7 +93,7 @@ request_server_stats().then( (stats) => {
    create_bar_chart(ctx, data, "Db memory usage", "MB", labels);
 
    ctx = document.getElementById('disk-chart')!;
-   create_pie_chart(ctx, Object.values(stats.disk), "Disk usage", "GB", ["total", "Available"]);
+   create_pie_chart(ctx, Object.values(stats.disk), "Disk usage", "GB", ["Used", "Available"]);
 
    ctx = document.getElementById('memory-chart')!;
    create_pie_chart(ctx, Object.values(stats.memory), "memory usage", "MB", ["Available", "Used"]);
