@@ -36,17 +36,15 @@ $should_die = false;
 while ($stmt->fetch()) {
    if ($username == $db_username) {
       $should_die = true;
-      echo "<p>Este usuario ya existe en la base de datos</p>";
    }
    if ($email == $db_email) {
       $should_die = true;
-      echo "<p>Este email ya existe en la base de datos</p>";
    }
    if ($telefono == $db_telefono) {
       $should_die = true;
-      echo "<p>Este telefono ya existe en la base de datos</p>";
    }
    if ($should_die) {
+      header("Location: login.html");
       die();
    }
 }

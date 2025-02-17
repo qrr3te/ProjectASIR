@@ -48,7 +48,7 @@ if ( password_verify($post_password, $password)) {
    header("Location:index.php");
    exit();
 } else {
-   echo "inicio de sesión fallido";
+   header("Location: login.html");
 }
 $conn->close();
 ?>

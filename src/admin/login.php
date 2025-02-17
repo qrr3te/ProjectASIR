@@ -1,4 +1,5 @@
 <?php
+$login_error = false;
 function login() {
    $user_identifier = $_POST['user_identifier'] ?? '';
    $password = $_POST['password'] ?? '';
@@ -19,17 +20,15 @@ function login() {
    $stmt->fetch();
 
    if (password_verify($password, $db_password)) {
-      $_SESSION["username"] = $db_username;
+      $_SESSION["admin_username"] = $db_username;
       $_SESSION["admin_status"] = true;
-      $_SESSION["logged_in"] = true;
       header("Location: index.php");
       die();
    } else {
-      echo "<p style='color: red; text-align: center;'>Contraseña incorrecta. Intente nuevamente.</p>";
+      global $login_error;
+      $login_error = true;
    }
    $stmt->close(); 
-
-   die();
 }
 
 
@@ -54,8 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p>Inicio de sesión para administradores</p>
          </div>
          <div id="login-inputs">
-            <input name="user_identifier" type="text" placeholder=" Email o nombre de usuario">  
-            <input name="password" type="password" placeholder=" Contraseña">  
+            <input name="user_identifier" type="text" placeholder=" Email o nombre de usuario" <?php if ($login_error) { echo "style='border: 1px solid red;'"; } ?>>  
+            <input name="password" type="password" placeholder=" Contraseña" <?php if ($login_error) { echo "style='border: 1px solid red;'"; } ?>>  
          </div>
          <div id="buttons">
             <input type="submit" value="Login">
