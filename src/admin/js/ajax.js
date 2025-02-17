@@ -63,3 +63,9 @@ function request_delete(id) {
         return yield response.json();
     });
 }
+function request_stats() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch("/admin/ajax/stats.php");
+        return yield response.json();
+    });
+}

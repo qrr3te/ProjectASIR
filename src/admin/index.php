@@ -21,6 +21,7 @@ $table_array = get_tables_array();
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href="css/style.css" rel="stylesheet">
       <link href="css/home.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
    </head>
    <body>
       <header>
@@ -44,7 +45,18 @@ $table_array = get_tables_array();
       </nav>
 
       <div id="home-area">
-         <h1>Server Stats placeholder</h1> 
+         <div>
+            <canvas id="myChart"></canvas>
+         </div>
+         <div>
+           <canvas id="myChart"></canvas>
+         </div>
+         <div>
+           <canvas id="myChart"></canvas>
+         </div>
+         <div>
+           <canvas id="myChart"></canvas>
+         </div>
       </div>
 
       <div id="main-area" style="display: none">
@@ -71,5 +83,6 @@ $table_array = get_tables_array();
       <script src="js/ajax.js"></script>
       <script src="js/mobile.js"></script>
       <script src="js/index.js"></script>
+      <script src="js/charts.js"></script>
    </body>
 </html>

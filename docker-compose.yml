@@ -9,6 +9,7 @@ services:
       - ./src:/var/www/html
     networks:
       backend_network:
+        ipv4_address: 172.20.0.5
     depends_on:
     # Depends on the MySQL database service
       - mysql-db
@@ -30,6 +31,7 @@ services:
     depends_on:
       - php-fpm  # Depends on the PHP-FPM service
       - mysql-db  # Depends on the MySQL database service
+
  # MySQL Database Service
   mysql-db:
     image: mariadb:latest
