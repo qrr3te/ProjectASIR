@@ -37,7 +37,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.php" class="nav-item nav-link active">Inicio</a>
-                <a href="presupuesto.php" class="nav-item nav-link">Cita Previa</a>
+                <a href="presupuesto.php" class="nav-item nav-link">Cita</a>
                 <a href="vehiculos.php" class="nav-item nav-link">Vehículos</a>
                 <a href="conocenos.php" class="nav-item nav-link">Nosotros</a>
                 <a href="servicios.php" class="nav-item nav-link">Servicios</a>
@@ -67,7 +67,15 @@
         </a>
     <?php endif; ?>
 </div>
-
+<!-- Ícono de Carrito -->
+<div class="d-flex align-items-center me-4">
+    <a href="../cart.php" class="nav-link position-relative">
+        <i class="fa fa-shopping-cart text-primary fa-lg"></i>
+        <span id="cart-count" class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">
+            0
+        </span>
+    </a>
+</div>
 
             <!-- Botón de contacto -->
             <a href="https://wa.me/633487862?text=hola" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">WhatsApp<i
@@ -97,9 +105,32 @@
     if (userIcon && logoutForm) {
         userIcon.addEventListener("click", function (event) {
             event.preventDefault();
-            userIcon.classList.add("d-none"); // Ocultar el icono
-            logoutForm.classList.remove("d-none"); // Mostrar el botón de salir
+            userIcon.classList.add("d-none"); 
+            logoutForm.classList.remove("d-none"); 
         });
     }
 });
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Simulación de número de productos en el carrito (debes reemplazar esto con datos de tu backend)
+        let cartCount = localStorage.getItem("cartCount") || 0;
+        document.getElementById("cart-count").textContent = cartCount;
+
+        // Ejemplo: función para actualizar el contador cuando se agregue un producto
+        function addToCart() {
+            cartCount++;
+            localStorage.setItem("cartCount", cartCount);
+            document.getElementById("cart-count").textContent = cartCount;
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const total = cart.reduce((sum, item) => sum + item.cantidad, 0);
+        document.getElementById('cart-count').textContent = total;
+    }
+    updateCartCount();
+});
+        // Puedes llamar a addToCart() cuando agregues un producto al carrito
+    });
+</script>
