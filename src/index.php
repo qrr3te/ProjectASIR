@@ -474,6 +474,7 @@
                     <h4 class="text-light mb-4">Legal</h4>
                     <a class="btn btn-link" href="cookies.php">Política de Cookies</a>
                     <a class="btn btn-link" href="terminos.php">Términos y condiciones</a>
+                    <a class="btn btn-link" href="contacto.php">Contacta</a>
                 </div>
             </div>
         </div>

@@ -43,7 +43,7 @@
                 <a href="servicios.php" class="nav-item nav-link">Servicios</a>
                 <div class="nav-item dropdown">
                 </div>
-                <a href="contacto.php" class="nav-item nav-link">Contacto</a>
+                <a href="carburantes.php" class="nav-item nav-link">Carburante</a>
             </div>
    <!-- Iconos adicionales -->
 <div class="d-flex align-items-center me-4">

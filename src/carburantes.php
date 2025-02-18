@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios - Alameda Industrial</title>
+    <title>Carburantes - Alameda Industrial</title>
     <link rel="stylesheet" href="css/servicio.css">
     <style>
 html, body {
@@ -36,7 +36,7 @@ if ($conn->connect_error) {
 }
  
 //Realización de la consulta para extraer los datos
-$query = $conn->query("SELECT * FROM servicios");
+$query = $conn->query("SELECT * FROM carburante");
  
 //Comprobación de que existen resultados
 if (!$query) {
@@ -46,7 +46,7 @@ if (!$query) {
 ?>
  
  <div class="container">
-    <h1>Servicios</h1>
+    <h1>Carburantes</h1>
     <div class="grid">
         <?php
         // Generar las tarjetas

@@ -117,7 +117,8 @@ fn init_db(conn: &mut Conn) -> Result<(), Box<dyn Error>> {
         r"CREATE TABLE IF NOT EXISTS carburante (
             id int PRIMARY KEY AUTO_INCREMENT,
             nombre varchar(255),
-            precio decimal(10, 2)
+            precio decimal(10, 2),
+            imagen longblob
         )"
     )?;
     
