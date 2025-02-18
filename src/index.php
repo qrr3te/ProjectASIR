@@ -8,9 +8,15 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
+   
     <?php include("includes/header.php"); ?>
-
+    <div id="cookies-place">
+      <iframe src="./cookies-headerless.php" title="W3Schools Free Online Web Tutorials"></iframe> 
+      <div>
+         <button onclick="hide_cookies()">No aceptar</button>
+         <button onclick="hide_cookies()">Aceptar</button>
+      </div>
+    </div>
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -494,6 +500,23 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+       function hide_cookies() {
+          const cookies_place = document.getElementById("cookies-place");
+          cookies_place.style.display = "none";
+          document.cookie += "cookies-hide";
+       }
+       
+       function show_cookies() {
+          const cookies_place = document.getElementById("cookies-place");
+          cookies_place.style.display = "grid";
+       }
+
+       const cookies = document.cookie;
+       if (!cookies.match("cookies-hide")) {
+          show_cookies();
+       }
+    </script>
 </body>
 
 </html>
