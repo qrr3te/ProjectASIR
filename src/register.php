@@ -4,7 +4,6 @@ require("./includes/connect.php");
 if ($conn->connect_error) {
    die("Error en la conexión: " . $conn->connect_error);
 }
-// end conf
 
 // Validar si el formulario fue enviado
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
@@ -21,7 +20,8 @@ $confirm_password = $_POST['confirm_password'];
 
 // Validaciones básicas
 if ($password != $confirm_password) {
-  die("Las contraseñas no coinciden.");
+  header("Location: login.html?error=password_mismatch");
+  exit();
 }
 
 $db_username = "";
@@ -32,24 +32,12 @@ $stmt = $conn->prepare("SELECT username, email, telefono FROM cliente");
 $stmt->bind_result($db_username, $db_email, $db_telefono);
 $stmt->execute();
 
-$should_die = false;
 while ($stmt->fetch()) {
-   if ($username == $db_username) {
-      $should_die = true;
-   }
-   if ($email == $db_email) {
-      $should_die = true;
-   }
-   if ($telefono == $db_telefono) {
-      $should_die = true;
-   }
-   if ($should_die) {
-      header("Location: login.html");
-      die();
+   if ($username == $db_username || $email == $db_email || $telefono == $db_telefono) {
+      header("Location: login.html?error=1");
+      exit();
    }
 }
-
-// Insertar el usuario en la base de datos
 
 // Encriptar la contraseña
 $password = password_hash($password, PASSWORD_ARGON2I);
@@ -58,9 +46,12 @@ $stmt = $conn->prepare("INSERT INTO cliente (username, nombre, apellido, email, 
 $stmt->bind_param("ssssss", $username, $nombre, $apellido, $email, $telefono, $password);
 
 if ($stmt->execute()) {
-   echo "Registro exitoso. ¡Ahora puedes iniciar sesión!";
+   header("Location: login.html?success=1");
+   exit();
 } else {
-   echo "Registro fallido";
+   header("Location: login.html?error=2");
+   exit();
 }
+
 $conn->close();
 ?>

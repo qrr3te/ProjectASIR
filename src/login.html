@@ -73,7 +73,7 @@
 
         .form-group label {
             font-size: 14px;
-            color: #ff7300;
+            color: #0B2154;
             display: block;
             margin-bottom: 5px;
         }
@@ -155,6 +155,7 @@
             }
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -231,6 +232,44 @@
             document.querySelector(`.tab button[onclick="showForm('${formId}')"]`).classList.add('active');
         }
     </script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.has("success")) {
+            Swal.fire({
+                title: "Registro exitoso",
+                text: "¡Tu cuenta ha sido creada! Ahora puedes iniciar sesión.",
+                icon: "success",
+                confirmButtonText: "Iniciar sesión"
+            });
+        }
+
+        if (urlParams.has("error")) {
+            let errorMessage = "Error en el registro. Verifica los datos.";
+
+            switch (urlParams.get("error")) {
+                case "1":
+                    errorMessage = "El nombre de usuario, correo o teléfono ya están en uso.";
+                    break;
+                case "2":
+                    errorMessage = "Ocurrió un error en el registro. Inténtalo más tarde.";
+                    break;
+                case "password_mismatch":
+                    errorMessage = "Las contraseñas no coinciden.";
+                    break;
+            }
+
+            Swal.fire({
+                title: "Registro fallido",
+                text: errorMessage,
+                icon: "error",
+                confirmButtonText: "Intentar de nuevo"
+            });
+        }
+    </script>
+
+
+    
 </body>
 
 </html>
