@@ -10,6 +10,7 @@
    position: absolute;
    width: 80vw;
    height: 40vh;
+   max-width: 1000px;
    background-color: white;
    z-index: 5;
    left: 0; 
@@ -42,6 +43,16 @@
    height: 50px;
    color: white;
    box-shadow: 2px 2px 5px black;
+}
+
+@media (max-width: 500px) {
+   #cookies-place {
+      margin-top: 15vh;
+      height: 60vh;
+   }
+   #cookies-place button {
+      width: 100px;
+   }
 }
 
 .fw-medium {
