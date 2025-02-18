@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'fjavierlopezpuertas@gmail.com';  
-            $mail->Password   = 'niap nujo wcth hmjx ';  
+            $mail->Password   = 'Introducir Clave de APLICACION';  
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
             $mail->Port       = 587;
 

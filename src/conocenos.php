@@ -16,26 +16,6 @@
     <?php include("includes/header.php"); ?>
     <div class="hero-image">
     </div>
-    <main>
-        <section class="Liderazgo">
-            <div class="container">
-                <h2>Conócenos</h2>
-                <p>
-                    Alameda Industrial inicia su historia en 1963, estableciendo una Estación de Servicio que
-                    incluía un taller de reparaciones, una tienda de recambios y un lavadero de autos.
-                </p>
-                <p>
-                    A lo largo de dos generaciones, hemos acumulado la experiencia necesaria para ofrecer un
-                    servicio de máxima calidad y plena satisfacción en un sector tan complejo como el nuestro.
-                </p>
-                <p>
-                    Hoy somos un referente en el sector, gracias al esfuerzo de un equipo comprometido
-                    con la excelencia.
-                </p>
-            </div>
-        </section>
-    </main>
-
     <section class="liderazgo">
         <div class="container">
             <h2>Liderazgo</h2>
