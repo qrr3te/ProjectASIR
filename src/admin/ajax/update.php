@@ -31,7 +31,13 @@ function update() {
          if ($_FILES[$column->name]["size"] > (1024 * 1024)) {
             send_error("file too large");
          }
-         $new_value = base64_encode(file_get_contents($_FILES[$column->name]["tmp_name"]));
+         try {
+           if (!empty($_FILES[$column->name]["tmp_name"])) {
+             $new_value = base64_encode(file_get_contents($_FILES[$column->name]["tmp_name"]));
+           }
+         } catch (Exception) {
+           continue 2;
+         }
          break;
       default:
          if (!isset($_POST[$column->name])) {
